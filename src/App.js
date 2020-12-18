@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Home from './components/Home';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import NavBar from './NavBar';
 
 class App extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NavBar />
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/registration" component={Registration} />
