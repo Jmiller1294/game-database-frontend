@@ -7,7 +7,7 @@ const Home = () => {
     
     return(
         <div className="home"style={{ 
-        backgroundImage: `url(${background})` 
+        backgroundImage: `` 
         }}>
         <h1>Home: hello</h1>
             status: add in props verify logged in
