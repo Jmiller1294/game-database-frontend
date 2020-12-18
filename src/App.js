@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Home from './components/Home';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import About from './components/About';
 import NavBar from './NavBar';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route exact path="/registration" component={Registration} />
           <Route exact Path="/login" component={Login} />
+          <Route exact Path="/about" component={About} />
         </Switch>
       </div>
     );
