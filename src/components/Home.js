@@ -3,6 +3,7 @@ import { logout } from '../actions/userActions';
 import { connect } from 'react-redux';
 import '../Home.css';
 import background from '../assets/homepage-background.jpg'
+import GamesContainer from '../containers/GamesContainer';
 
 
 class Home extends Component {
@@ -20,6 +21,7 @@ class Home extends Component {
                 <button onClick={() => this.handleLogout()}>
                     Sign out
                 </button>
+                <GamesContainer />
             </div>
         )
 
