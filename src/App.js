@@ -6,13 +6,16 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 import About from './components/About';
 import NavBar from './NavBar';
+import { connect } from 'react-redux'
+import { checkLoggedInStatus } from './actions/userActions'
 
 class App extends Component {
   componentDidMount() {
-
+    this.props.checkLoggedInStatus()
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <NavBar />
@@ -26,4 +29,10 @@ class App extends Component {
     );
   }
 }
-export default App;
+
+const mapStateToProps = (state) => ({
+  user: state.user.currentUser,
+  logged_in: state.user.logged_in
+})
+
+export default connect(mapStateToProps, {checkLoggedInStatus})(App);

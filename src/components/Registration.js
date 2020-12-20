@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { startCreateUser } from '../actions/userActions'
 
 class Registration extends Component {
 
@@ -19,6 +21,7 @@ class Registration extends Component {
     handleSubmit(event) {
         event.preventDefault()
         console.log(this.state)
+        this.props.startCreateUser(this.state)
     }
 
 
@@ -38,4 +41,4 @@ class Registration extends Component {
         )
     } 
 }
-export default Registration;
+export default connect(null, { startCreateUser })(Registration);
