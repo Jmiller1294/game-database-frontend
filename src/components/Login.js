@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { startLogin } from '../actions/userActions';
 
 
 class Login extends Component {
@@ -11,12 +13,15 @@ class Login extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(this.state.email)
-        console.log(this.state.password)
     }
 
     handleSubmit(event) {
-
+        event.preventDefault()
+        this.props.startLogin(this.state)
+        this.setState({
+            email: "",
+            password: ""
+        })
     }
 
 
@@ -34,4 +39,4 @@ class Login extends Component {
         )
     } 
 }
-export default Login;
+export default connect(null, { startLogin })(Login);

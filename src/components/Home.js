@@ -1,17 +1,28 @@
-import React from 'react';
-import '../Home.css'
+import React, { Component } from 'react';
+import { logout } from '../actions/userActions';
+import { connect } from 'react-redux';
+import '../Home.css';
 import background from '../assets/homepage-background.jpg'
 
 
-const Home = () => {
-    
-    return(
-        <div className="home"style={{ 
-        backgroundImage: `` 
-        }}>
-        <h1>Home: hello</h1>
-            status: add in props verify logged in
-        </div>
-    )
+class Home extends Component {
+
+    handleLogout() {
+        this.props.logout()
+    }
+
+    render() {
+        return(
+            <div className="home">
+                <h1>Home </h1>
+                <p>user: {this.props.currentUser ? this.props.currentUser.email : null}</p>
+                <p>status: {this.props.loggedIn ? "logged in!": null}</p>
+                <button onClick={() => this.handleLogout()}>
+                    Sign out
+                </button>
+            </div>
+        )
+
+    }
 }
-export default Home;
+export default connect(null, { logout })(Home);

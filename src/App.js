@@ -20,7 +20,7 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" render={(props) => <Home {...props} currentUser={this.props.user} loggedIn={this.props.loggedIn} />}/>
           <Route exact path="/registration" component={Registration} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/about" component={About} />
@@ -32,7 +32,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
-  logged_in: state.user.logged_in
+  loggedIn: state.user.logged_in
 })
 
 export default connect(mapStateToProps, {checkLoggedInStatus})(App);
