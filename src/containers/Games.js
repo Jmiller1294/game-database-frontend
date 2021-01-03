@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class GamesContainer extends Component {
+class Games extends Component {
   
   componentDidMount() {
     fetch("https://api.rawg.io/api/platforms?key=1f2308f71a1943d8bde593eaeb0ddde5")
@@ -12,9 +12,9 @@ class GamesContainer extends Component {
   render(){
     return (
       <div>
-
+        Games
       </div>
     )
   }
 }
-export default GamesContainer
+export default Games

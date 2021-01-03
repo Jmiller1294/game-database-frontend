@@ -1,0 +1,12 @@
+#login-form {
+  margin: 300px auto 0px auto;
+  text-align: center;
+}
+
+fieldset {
+  width: 100px;
+  margin: 0px auto 0px auto;
+}
+button {
+  margin: 10px
+}

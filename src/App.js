@@ -1,32 +1,38 @@
-import './App.css';
-import { Route , Switch} from 'react-router-dom';
+import './styles/App.css';
+import { Redirect, Route , Switch} from 'react-router-dom';
 import React, { Component } from 'react';
 import Home from './components/Home';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import Games from './containers/Games';
+import Consoles from './containers/Consoles';
 import About from './components/About';
-import NavBar from './NavBar';
-import { connect } from 'react-redux'
-import { checkLoggedInStatus } from './actions/userActions'
+import NavBar from './components/NavBar';
+import { connect } from 'react-redux';
+import { checkLoggedInStatus } from './actions/userActions';
 
 class App extends Component {
   componentDidMount() {
     this.props.checkLoggedInStatus()
   }
-
+  
+  
   render() {
-    console.log(this.props)
-    return (
-      <div className="App">
-        <NavBar />
-        <Switch>
-          <Route exact path="/" render={(props) => <Home {...props} currentUser={this.props.user} loggedIn={this.props.loggedIn} />}/>
-          <Route exact path="/registration" component={Registration} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/about" component={About} />
-        </Switch>
-      </div>
-    );
+    console.log(this.props.loggedIn)
+    console.log(this.props.user)
+    
+      return (
+        <div className="App">
+          <NavBar />
+          <Switch>  
+            <Route exact path="/" render={(props) => <Home {...props} user={this.props.user} />} /> 
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/games" component={Games} />
+            <Route exact path="/consoles" component={Consoles} />
+            <Route exact path="/about" component={About} />
+          </Switch>
+        </div>
+      );
   }
 }
 
