@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Game from '../components/Game';
+import '../styles/Games.css'
 
 class Games extends Component {
 
-  state ={
+  state = {
     games: []
   }
   
@@ -29,6 +30,12 @@ class Games extends Component {
   render(){
     return (
       <div>
+        <div>
+          <form id="search">
+            <input id="search-bar" type="search" name="search" />
+            <button id="search-button" type="submit" value="Submit">Search</button>
+          </form>
+        </div>
         {this.state.games && this.state.games.map(game => <Game key={game.id} game={game}/>)}
       </div>
     )

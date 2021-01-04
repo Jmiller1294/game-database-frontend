@@ -1,0 +1,11 @@
+#search {
+  text-align: center;
+  margin: 20px;
+}
+#search-bar {
+  width: 300px;
+}
+
+#search-button {
+  margin-left: 0;
+}
