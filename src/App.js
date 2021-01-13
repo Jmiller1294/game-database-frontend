@@ -13,7 +13,7 @@ import { checkLoggedInStatus } from './actions/userActions';
 
 class App extends Component {
   componentDidMount() {
-    this.props.checkLoggedInStatus()
+    //this.props.checkLoggedInStatus()
   }
   
   
