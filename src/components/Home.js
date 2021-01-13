@@ -12,7 +12,11 @@ class Home extends Component {
     
 
     componentDidMount() {
-        
+        const url = 'http://newsapi.org/v2/everything?q=video games' +
+        '&apiKey=0176803c14204800ae658c2d02a9c37f';
+        fetch(url) 
+        .then(resp => resp.json())
+        .then(data => console.log(data))
     }
 
     handleLogout() {
