@@ -7,8 +7,8 @@ class Games extends Component {
   state = {
     games: []
   }
-  
-  componentDidMount() {
+
+  getGames() {
     const proxy = "http://127.0.0.1:8080/"
     const url = "https://api.igdb.com/v4/games"
     fetch(proxy + url, {
@@ -18,14 +18,15 @@ class Games extends Component {
         'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
         'Authorization': 'Bearer mkvho4b2s24a2o6ack23l52lfj9t0r',
     },
-    body: "fields name,cover.*;limit 20;"
+    body: `search ${g} fields name,cover.*;limit 20;`
     })
     .then(resp => resp.json())
     .then(data => this.setState({
       games: data
     }))
-    
   }
+  
+  
   
   render(){
     return (

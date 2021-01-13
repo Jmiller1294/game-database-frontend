@@ -1,0 +1,11 @@
+.column1, .column2, .column3 {
+  width: 33.3%;
+  float: left;
+  color: white;
+}
+
+.home, .article {
+  height: 200px;
+  margin: 2em 2em 2em 2em;
+}
+
