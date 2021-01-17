@@ -6,7 +6,7 @@
 
 .home, .article {
   height: 200px;
-  margin: 2em 2em 2em 2em;
+  margin: 2em auto 2em auto;
 }
 
 .articles-header {
@@ -22,8 +22,9 @@
 }
 
 .article {
+  position: relative;
   width: 23.4%;
-  height: 250px;
+  height: 280px;
   float: left;
   margin-right: 5px;
   margin-left: 10px;
@@ -31,12 +32,17 @@
 }
 
 .article-title {
+  text-align: center;
   margin-bottom: 0;
 }
 
 .article-img {
+  right: 0;
+  bottom: 10px;
   border-radius: 15px;
-  height: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 70%;
   width: 100%;
 }
 
