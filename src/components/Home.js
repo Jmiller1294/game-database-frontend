@@ -7,21 +7,23 @@ import Articles from '../containers/Articles'
 
 class Home extends Component {
 
-
+    state = {
+        articles: []
+    }
     
-    
+    handleLogout() {
+        this.props.logout()
+        this.props.history.push("/login");
+    }
 
     componentDidMount() {
         const url = 'http://newsapi.org/v2/everything?q=games' +
         '&apiKey=0176803c14204800ae658c2d02a9c37f';
         fetch(url) 
         .then(resp => resp.json())
-        .then(data => console.log(data))
-    }
-
-    handleLogout() {
-        this.props.logout()
-        this.props.history.push("/login");
+        .then(data => this.setState({
+            articles: data.articles
+        }))
     }
 
     render() {
@@ -32,7 +34,7 @@ class Home extends Component {
                         <h1>Home </h1>
                         
                     </div>
-                    <Articles />
+                    <Articles articles={this.state.articles}/>
                 </div>
             )
         }
