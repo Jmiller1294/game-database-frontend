@@ -1,10 +1,13 @@
 import React from 'react';
-import '../styles/Game.css'
+import { Link } from 'react-router-dom'
 
 const Game = (props) => {
   return (
     <div className="game-container">
-      <p>{props.game.name}</p>
+      <Link to={{
+        pathname: '/info',
+        game: props.game
+      }}>{props.game.name}</Link>
       {
         props.game.cover === undefined ? <p>No Image</p> : <img className="cover-art" src={props.game.cover.url} alt="Cover Art"/>
       }  

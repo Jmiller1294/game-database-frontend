@@ -1,3 +1,16 @@
+.game-container {
+  width: 150px;
+  height: 250px;
+  margin: 20px auto 20px auto;
+}
+
+.cover-art {
+  text-align: center;
+  width: 150px;
+  height: 200px;
+  margin: 2px auto 2px auto;
+}
+
 #search {
   text-align: center;
   margin: 20px;
