@@ -12,7 +12,7 @@ class Home extends Component {
     
 
     componentDidMount() {
-        const url = 'http://newsapi.org/v2/everything?q=video games' +
+        const url = 'http://newsapi.org/v2/everything?q=games' +
         '&apiKey=0176803c14204800ae658c2d02a9c37f';
         fetch(url) 
         .then(resp => resp.json())
@@ -30,11 +30,7 @@ class Home extends Component {
                 <div className="content">
                     <div className="home">
                         <h1>Home </h1>
-                        <p>user: {this.props.user ? this.props.user.email : null}</p>
-                        <p>status: {this.props.user ? "logged in!": null}</p>
-                        <button onClick={() => this.handleLogout()}>
-                            Sign out
-                        </button>
+                        
                     </div>
                     <Articles />
                 </div>
