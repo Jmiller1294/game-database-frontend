@@ -12,6 +12,7 @@
 }
 
 .cover {
+  margin: 25px;
   width: 150px;
   height: 200px;
 }
@@ -28,8 +29,10 @@
   margin-left: 0;
 }
 
-.info {
+.info-container {
+  height: 1000px;
   margin: 50px;
   text-align: left;
+  background-color: grey;
 }
 

@@ -30,7 +30,7 @@ class Games extends Component {
         'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
         'Authorization': 'Bearer mkvho4b2s24a2o6ack23l52lfj9t0r',
     },
-    body: `search "${searchTerm}"; fields name,cover.*;limit 20;`
+    body: `search "${searchTerm}"; fields name,videos.*,cover.*;limit 20;`
     })
     .then(resp => resp.json())
     .then(data => this.setState({
