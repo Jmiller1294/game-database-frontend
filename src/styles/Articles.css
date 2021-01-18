@@ -4,30 +4,29 @@
   color: white;
 }
 
-.home, .article {
-  height: 200px;
-  margin: 2em auto 2em auto;
-}
-
 .articles-header {
   text-align: center;
 }
 
 .articles-container {
   text-align: center;
-  width: 1200px;
-  margin: 2em auto 2em auto;
-  height: 1800px;
+  width: auto;
+  padding: 0px 100px 100px 100px;
+  margin: 0px auto 100px auto;
+  min-height: 1200px;
+  max-height: 1600px;
   
 }
 
 .article {
   position: relative;
-  width: 23.4%;
+  max-width: 250px;
+  min-width: 180px;
+  width: 22.4%;
   height: 280px;
   float: left;
   margin-right: 5px;
-  margin-left: 10px;
+  margin-left: 72px;
   text-align: center;
 }
 

@@ -3,7 +3,7 @@ import React from 'react';
 const Info = (props) => {
   return (
     <div>
-      {props.location.game.name}
+      <img className="cover" src={props.location.game.cover.url} alt="cover"></img>
       {console.log(props.location.game)}
     </div>
   )
