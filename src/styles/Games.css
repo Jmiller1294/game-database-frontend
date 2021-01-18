@@ -12,7 +12,8 @@
 }
 
 .cover {
-  
+  width: 150px;
+  height: 200px;
 }
 
 #search {
@@ -25,5 +26,10 @@
 
 #search-button {
   margin-left: 0;
+}
+
+.info {
+  margin: 50px;
+  text-align: left;
 }
 
