@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Game from '../components/Game';
-import '../styles/Games.css'
+import { connect } from 'react-redux';
+import { addGame } from '../actions/gameActions';
+import '../styles/Games.css';
 
 class Games extends Component {
 
   state = {
-    searchTerm: "",
-    games: []
+    searchTerm: ""
   }
 
   handleChange(event) {
@@ -30,17 +31,13 @@ class Games extends Component {
         'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
         'Authorization': 'Bearer mkvho4b2s24a2o6ack23l52lfj9t0r',
     },
-    body: `search "${searchTerm}"; fields name,videos.*,cover.*;limit 20;`
+    body: `search "${searchTerm}"; fields name,artworks,themes.url,storyline,screenshots.url,first_release_date,rating,platforms.name,similar_games.cover.url,videos.*,cover.*;limit 20;`
     })
     .then(resp => resp.json())
-    .then(data => this.setState({
-      games: data
-    }))
+    .then(data => this.props.addGame(data))
     .catch(error => {console.log('error', error)})
   }
-  
 
-  
   render(){
     return (
       <div>
@@ -50,9 +47,15 @@ class Games extends Component {
             <button id="search-button" type="submit" value="Submit">Search</button>
           </form>
         </div>
-        {this.state.games && this.state.games.map(game => <Game key={game.id} game={game}/>)}
+        {this.props.games.games && this.props.games.games.map(game => <Game key={game.id} game={game}/>)}
       </div>
     )
   }
 }
-export default Games
+
+  const mapStateToProps = state => {
+    return {
+      games: state.games
+    }
+  }
+export default connect(mapStateToProps, { addGame })(Games)
