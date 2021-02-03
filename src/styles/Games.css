@@ -12,7 +12,7 @@
 }
 
 .cover {
-  margin: 25px;
+  margin-top: 0;
   width: 150px;
   height: 200px;
 }
@@ -30,9 +30,56 @@
 }
 
 .info-container {
-  height: 1000px;
+  padding-left: 25px;
+  min-height: 1200px;
+  max-height: 1800;
   margin: 50px;
   text-align: left;
   background-color: grey;
+}
+
+.video-container {
+  margin: 10px 0 10px 0;
+}
+
+.screenshot-container {
+  margin: 10px 0 10px 0;
+}
+
+.similar-games-container {
+  margin: 10px 0 10px 0;
+}
+
+.game-title {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.game-rating {
+  font-size: 30px;
+}
+
+
+
+.platform-list {
+  padding: 0;
+  max-height: 100px;
+}
+
+iframe {
+  margin: 10px;
+}
+
+.screenshot {
+  height: 150px;
+  width: 150px;
+  margin-right: 5px;
+}
+
+.similar-game {
+  height: 150px;
+  width: 100px;
+  margin-right: 5px;
+  margin-bottom: 20px;
 }
 
