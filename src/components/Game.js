@@ -2,11 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 
 const Game = (props) => {
-  console.log(props)
   return (
     <div className="game-container">
       <Link to={{
-        pathname: '/info',
+        pathname: '/gameInfo',
         game: props.game
       }}>{props.game.name}</Link>
       {

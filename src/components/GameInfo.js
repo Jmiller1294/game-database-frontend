@@ -1,9 +1,8 @@
 import React from 'react';
 
-const Info = (props) => {
+const GameInfo = (props) => {
   return (
       <>
-        {console.log(props.location)}
         {props.location.game ?
           <div className="info-container">
             <h1 className="game-title">{props.location.game.name}</h1>
@@ -30,4 +29,4 @@ const Info = (props) => {
     </>
   )
 }
-export default Info;
+export default GameInfo;

@@ -10,7 +10,8 @@ import About from './components/About';
 import NavBar from './components/NavBar';
 import { connect } from 'react-redux';
 import { checkLoggedInStatus } from './actions/userActions';
-import Info from './components/Info';
+import GameInfo from './components/GameInfo';
+import ConsoleInfo from './components/ConsoleInfo';
 
 class App extends Component {
   componentDidMount() {
@@ -31,7 +32,8 @@ class App extends Component {
             <Route exact path="/games" component={Games} />
             <Route exact path="/consoles" component={Consoles} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/info" component={Info} />
+            <Route exact path="/gameInfo" component={GameInfo} />
+            <Route exact path="/consoleInfo" component={ConsoleInfo} />
           </Switch>
         </div>
       );
