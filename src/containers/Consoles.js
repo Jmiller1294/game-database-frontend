@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Console from '../components/Console'
+import '../styles/Consoles.css'
 
 class Consoles extends Component {
   
@@ -40,7 +41,7 @@ class Consoles extends Component {
   render() {
     console.log(this.state.consoles)
     return (
-      <div>
+      <div className="console-container">
         {this.state.consoles && this.state.consoles.map(console => <Console key={console.id} console={console} />)}
       </div>
     )

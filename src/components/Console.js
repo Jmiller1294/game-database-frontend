@@ -2,13 +2,25 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Console = (props) => {
-  return (
-    <div>
-       <Link to={{
-        pathname: '/consoleInfo',
-        console: props.console
-      }}>{props.console.name}</Link>
-    </div>
-  )
+  if(props.console.name.includes("Xbox")) {
+    return (
+      <div className="xbox"> 
+         <Link to={{
+          pathname: '/consoleInfo',
+          console: props.console
+        }}>{props.console.name}</Link>
+      </div>
+    )
+  }
+  else {
+    return (
+      <div className="playstation"> 
+         <Link to={{
+          pathname: '/consoleInfo',
+          console: props.console
+        }}>{props.console.name}</Link>
+      </div>
+    )
+  }
 }
 export default Console;
