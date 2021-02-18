@@ -41,9 +41,12 @@ class Consoles extends Component {
   render() {
     console.log(this.state.consoles)
     return (
-      <div className="console-container">
-        {this.state.consoles && this.state.consoles.map(console => <Console key={console.id} console={console} />)}
-      </div>
+        <div className="console-container">
+          <h2 className="xbox-console-header">Xbox</h2>
+          <h2 className="playstation-console-header">Playstation</h2>
+          <h2 className="nintendo-console-header">Nintendo</h2>
+          {this.state.consoles && this.state.consoles.map(console => <Console key={console.id} console={console} />)}
+        </div>
     )
   }
 }

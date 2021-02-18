@@ -54,8 +54,7 @@ class Home extends Component {
             return(
                 <div className="content">
                     <div className="home">
-                        <h1>Home</h1>
-                        
+                        <h1>Home</h1>    
                     </div>
                     <Articles articles={this.state.articles}/>
                 </div>

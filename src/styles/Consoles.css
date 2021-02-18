@@ -1,3 +1,32 @@
-.xbox {
+.console-container {
+  position: relative;
+  width: auto;
+  height: 500px;
   margin: 20px;
+}
+
+.xbox {
+  margin: 10px;
+  position: relative;
+  bottom: 100px;
+}
+
+.playstation {
+  margin: 10px;
+  position: relative;
+  bottom: 50px;
+}
+
+.xbox-console-header {
+  
+}
+
+.playstation-console-header {
+  position: relative;
+  top: 200px;
+}
+
+.nintendo-console-header {
+  top: 300px;
+  position: relative;
 }
