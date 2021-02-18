@@ -5,19 +5,22 @@
 }
 
 .articles-header {
+  margin-top: 0;
   text-align: center;
   width: 100%;
 }
 
 .articles-container {
+  background-image: url(../assets//homepage.jpg);
+  position: relative;
   clear:left;
   text-align: center;
   width: auto;
+  height: 2800px;
   padding: 0px 100px 100px 100px;
-  margin: 0px auto 100px auto;
+  margin: 0px auto 0px auto;
   min-height: 1200px;
-  max-height: 1600px;
-  
+  max-height: 2500px;  
 }
 
 .article {
@@ -40,7 +43,8 @@
 }
 
 .article-img {
- 
+  position: absolute;
+  right: 0px;
   height: 72%;
   width: 100%;
 }

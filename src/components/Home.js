@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { logout } from '../actions/userActions';
 import { connect } from 'react-redux';
 import '../styles/Home.css';
-import background from '../assets/homepage-background.jpg'
+import background from '../assets/homepage.jpg'
 import Articles from '../containers/Articles'
 
 class Home extends Component {
@@ -52,9 +52,9 @@ class Home extends Component {
     render() {
         console.log(this.props)
             return(
-                <div className="content">
-                    <div className="home">
-                        <h1>Home</h1>    
+                <div className="homepage">
+                    <div className="upcoming">
+                     
                     </div>
                     <Articles articles={this.state.articles}/>
                 </div>

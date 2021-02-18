@@ -1,7 +1,11 @@
-.home {
+.upcoming {
   width: auto;
   height: 300px;
   color: white;
   text-align: center;
   border-bottom: 2px solid white;
+}
+
+.homepage { 
+  height: 2800px;
 }

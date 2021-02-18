@@ -1,13 +1,31 @@
 #navbar {
+  position: relative;
   background-color:grey;
   width: auto;
-  padding: 15px;
+  height: 25px;
+  padding: 10px;
   margin: 0px auto 0px auto;
   text-align: center;
- 
 }
 
 .nav-item {
+  float:left;
+  width: 70px;
+  height: 30px;
   display: inline;
-  margin: 0px 10px;
+  margin: 5px 20px 0px 0px;
 }
+
+.site-name {
+  float:left;
+  height: 40px;
+  display: inline;
+  margin: 0px 20px 5px 0px;
+  font: 20px Fantasy;
+  width: 150px;
+}
+
+.nav-item.login-button {
+  margin-left: 5%;
+}
+

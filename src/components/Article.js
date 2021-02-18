@@ -4,7 +4,7 @@ const Article = (props) => {
   return (
       <figure className="article">
         <a href={props.article.url}> <img className="article-img" alt="article" src={props.article.urlToImage}></img> </a>
-        <figcaption class="caption"> <a href={props.article.url}> <h3>{props.article.title}</h3> </a></figcaption>
+        <figcaption className="caption"> <a href={props.article.url}> <h4>{props.article.title}</h4> </a></figcaption>
       </figure>
       
       
