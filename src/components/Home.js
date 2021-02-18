@@ -54,7 +54,7 @@ class Home extends Component {
             return(
                 <div className="homepage">
                     <div className="upcoming">
-                     
+                        <h2>Upcoming Games</h2>
                     </div>
                     <Articles articles={this.state.articles}/>
                 </div>
