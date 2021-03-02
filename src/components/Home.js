@@ -34,7 +34,7 @@ class Home extends Component {
           headers: {
             'Accept': 'application/json',
             'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
-            'Authorization': 'Bearer mkvho4b2s24a2o6ack23l52lfj9t0r',
+            'Authorization': 'Bearer 7c4kngcpejdc7g9zhsubjsvayowa4o',
         },
         body: `fields name,cover.*;where first_release_date > ${Math.floor(Date.now() / 1000)};limit 20;`
         })
@@ -44,6 +44,15 @@ class Home extends Component {
     }
     
     componentDidMount() {
+        fetch("https://id.twitch.tv/oauth2/token?client_id=yy5am1hpn894dvf7mqk3k1ifx4qfkz&client_secret=ulwvt5b4sgp8hff24usizar2gr5lwe&grant_type=client_credentials",
+         {
+             method: "POST",
+             headers: {
+                'Accept': 'application/json'
+             }
+         })
+        .then(resp => resp.json())
+        .then(data => console.log(data))
         this.getGames()
         this.getArticles()
     }
