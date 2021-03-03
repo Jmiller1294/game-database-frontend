@@ -10,3 +10,10 @@
 .homepage { 
   height: 2800px;
 }
+
+.upcoming-games {
+  display: inline;
+  width: 150px;
+  height: 200px;
+  margin: 25px;
+}
