@@ -8,8 +8,7 @@ const Articles = (props) => {
   <> 
     <div className="articles-container">
       <h2 className="articles-header">Recent Articles</h2>
-      {console.log(props.articles)}
-      {props.articles.map(article => (<Article key={article.id} article={article} />))}
+      {props.articles.map((article, index) => (<Article key={index} article={article} />))}
     </div>
   </>
   )

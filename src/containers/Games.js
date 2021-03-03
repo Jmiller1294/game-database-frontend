@@ -29,7 +29,7 @@ class Games extends Component {
       headers: {
         'Accept': 'application/json',
         'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
-        'Authorization': 'Bearer 7c4kngcpejdc7g9zhsubjsvayowa4o',
+        'Authorization': `Bearer ${process.env.REACT_APP_IGDB_API_KEY}`,
     },
     body: `search "${searchTerm}"; fields name,artworks,themes.url,storyline,screenshots.url,first_release_date,rating,platforms.name,similar_games.cover.url,videos.*,cover.*;limit 20;`
     })

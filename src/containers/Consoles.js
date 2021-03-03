@@ -4,7 +4,6 @@ import '../styles/Consoles.css'
 
 class Consoles extends Component {
   
-
   state = {
     consoles: []
   }
@@ -18,28 +17,8 @@ class Consoles extends Component {
     }))
   }
 
-
-
-  // componentDidMount() {
-  //   const proxy = "http://127.0.0.1:8080/"
-  //   const url = "https://api.igdb.com/v4/platforms"
-  //   fetch(proxy + url, {
-  //     method: "POST",
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
-  //       'Authorization': 'Bearer mkvho4b2s24a2o6ack23l52lfj9t0r',
-  //   },
-  //   body: "fields name,url,abbreviation,category,checksum,created_at,platform_logo,summary;where created_at > 1262550260; where category = (1,4) ;limit 100;"
-  //   })
-  //   .then(resp => resp.json())
-  //   .then(data => console.log(data))
-    
-  // }
-
   
   render() {
-    console.log(this.state.consoles)
     return (
         <div className="console-container">
           <h2 className="xbox-console-header">Xbox</h2>
