@@ -55,6 +55,7 @@ class Home extends Component {
                 <div className="homepage">
                     <div className="upcoming">
                         <h2>Upcoming Games</h2>
+                        These Games are coming soon
                     </div>
                     <Articles articles={this.state.articles}/>
                 </div>
