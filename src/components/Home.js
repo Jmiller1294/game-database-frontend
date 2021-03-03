@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { logout } from '../actions/userActions';
 import { connect } from 'react-redux';
 import '../styles/Home.css';
-import background from '../assets/homepage.jpg'
-import Articles from '../containers/Articles'
+import background from '../assets/homepage.jpg';
+import Articles from '../containers/Articles';
+import UpcomingGames from './UpcomingGames';
 
 class Home extends Component {
 
     state = {
-        articles: []
+        articles: [],
+        games: []
     }
     
     handleLogout() {
@@ -39,7 +41,9 @@ class Home extends Component {
         body: `fields name,cover.*;where first_release_date > ${Math.floor(Date.now() / 1000)};limit 20;`
         })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => this.setState({
+            games: data
+        }))
         .catch(error => {console.log('error', error)})
     }
     
@@ -55,7 +59,7 @@ class Home extends Component {
                 <div className="homepage">
                     <div className="upcoming">
                         <h2>Upcoming Games</h2>
-                        These Games are coming soon
+                        <UpcomingGames games={this.state.games}/>
                     </div>
                     <Articles articles={this.state.articles}/>
                 </div>
