@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { logout } from '../actions/userActions';
 import { connect } from 'react-redux';
 import '../styles/Home.css';
-import background from '../assets/homepage.jpg';
 import Articles from '../containers/Articles';
 import UpcomingGames from './UpcomingGames';
 

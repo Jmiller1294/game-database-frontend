@@ -1,9 +1,12 @@
 import React from 'react';
+import '../styles/About.css'
+import photo from '../assets/personal-photo.jpg'
 
 const About = () => {
   return(
-    <div>
-      <p>
+    <div className="about-container">
+      <img src={photo} alt="about picture"></img>
+      <p className="description">
         Game Database is an application created by 
         Justin Miller in 2021 that allows users to 
         access information on thousands of games 
