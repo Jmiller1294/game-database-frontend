@@ -8,13 +8,19 @@ class Consoles extends Component {
     consoles: []
   }
 
-  componentDidMount() {
+  getConsoles() {
     const url = "http://localhost:3001/consoles"
     fetch(url)
     .then(resp => resp.json())
     .then(data => this.setState({
       consoles: data
     }))
+  }
+  
+  
+  
+  componentDidMount() {
+   this.getConsoles()
   }
 
   

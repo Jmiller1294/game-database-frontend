@@ -30,7 +30,7 @@
 }
 
 .info-container {
-  padding-left: 25px;
+  padding: 30px;
   min-height: 1200px;
   max-height: 1800;
   margin: 50px;
@@ -51,7 +51,7 @@
 }
 
 .game-title {
-  margin-top: 10px;
+  margin-top: ;
   margin-bottom: 0;
 }
 
@@ -59,10 +59,8 @@
   font-size: 30px;
 }
 
-
-
 .platform-list {
-  padding: 0;
+  padding: 15px;
   max-height: 100px;
 }
 

@@ -1,4 +1,5 @@
 .console-container {
+  color: white;
   position: relative;
   width: auto;
   height: 500px;
@@ -9,6 +10,7 @@
   margin: 10px;
   position: relative;
   bottom: 100px;
+  
 }
 
 .playstation {
@@ -18,15 +20,18 @@
 }
 
 .xbox-console-header {
-  
+  margin-top: 100px;
+  text-decoration: underline;
 }
 
 .playstation-console-header {
   position: relative;
   top: 200px;
+  text-decoration: underline;
 }
 
 .nintendo-console-header {
   top: 300px;
   position: relative;
+  text-decoration: underline;
 }
