@@ -51,8 +51,8 @@
 }
 
 .game-title {
-  margin-top: ;
-  margin-bottom: 0;
+  text-decoration: underline;
+  margin-bottom: 10px;
 }
 
 .game-rating {

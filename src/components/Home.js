@@ -3,7 +3,7 @@ import { logout } from '../actions/userActions';
 import { connect } from 'react-redux';
 import '../styles/Home.css';
 import Articles from '../containers/Articles';
-import UpcomingGames from './UpcomingGames';
+import UpcomingGames from '../containers/UpcomingGames';
 
 class Home extends Component {
 
@@ -37,7 +37,7 @@ class Home extends Component {
             'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
             'Authorization': `Bearer ${process.env.REACT_APP_IGDB_API_KEY}`,
         },
-        body: `fields name,cover.*;where first_release_date > ${Math.floor(Date.now() / 1000)};limit 20;`
+        body: `fields name,first_release_date,cover.*;where first_release_date > ${Math.floor(Date.now() / 1000)};limit 20;`
         })
         .then(resp => resp.json())
         .then(data => this.setState({
