@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import UpcomingGame from '../components/UpcomingGame';
 
-const UpcomingGames = (props) => {
-  
-  return (
-    <div>
-      {console.log(props.games)}
-      {props.games.slice(0,7).map(game => <img key={game.id} className="upcoming-games" src={game.cover.url} alt="Game Coming soon"/>)}
-    </div>
-  )
+class UpcomingGames extends Component {
+
+
+  render() {
+    return (
+      <div className="upcoming-games-container">
+        {console.log(this.props.games)}
+        <h2 className="upcoming-games-header">Upcoming Games</h2>
+        {this.props.games.slice(0,7).map(game => <UpcomingGame key={game.id} game={game} />)}
+      </div>
+    )
+  }
 }
 export default UpcomingGames;

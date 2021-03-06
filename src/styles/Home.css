@@ -1,4 +1,4 @@
-.upcoming {
+.upcoming-games-container {
   width: auto;
   height: 300px;
   color: white;
@@ -11,9 +11,9 @@
   height: 2800px;
 }
 
-.upcoming-games {
+.upcoming-game {
   display: inline;
-  width: 150px;
+  width: 12%;
   height: 200px;
   margin: 25px;
 }

@@ -56,10 +56,7 @@ class Home extends Component {
         console.log(this.props)
             return(
                 <div className="homepage">
-                    <div className="upcoming">
-                        <h2>Upcoming Games</h2>
-                        <UpcomingGames games={this.state.games}/>
-                    </div>
+                    <UpcomingGames games={this.state.games}/>
                     <Articles articles={this.state.articles}/>
                 </div>
             )
