@@ -1,10 +1,11 @@
 .upcoming-games-container {
   width: auto;
-  height: 300px;
+  height: 350px;
   color: white;
   text-align: center;
   border-bottom: 2px solid white;
   padding: 10px;
+  
 }
 
 .homepage { 
@@ -12,8 +13,14 @@
 }
 
 .upcoming-game {
-  display: inline;
-  width: 12%;
-  height: 200px;
-  margin: 25px;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  padding: 0;
+}
+
+.cover-art {
+  height: auto;
+  width: 100%;
 }
