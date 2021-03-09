@@ -1,5 +1,9 @@
 import React from 'react';
 
+const getDate = (date) => {
+  
+}
+
 const UpcomingGame = (props) => {
   return(
       <figure className="upcoming-game" >
