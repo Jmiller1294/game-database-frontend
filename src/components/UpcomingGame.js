@@ -1,14 +1,14 @@
 import React from 'react';
 
 const getDate = (date) => {
-  
+
 }
 
 const UpcomingGame = (props) => {
   return(
       <figure className="upcoming-game" >
-        <img className="cover-art" key={props.game.id} src={props.game.cover.url} alt="Game Coming soon"/>
-        <figcaption>{props.game.first_release_date}</figcaption>
+        <img className="cover-art" key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
+        <figcaption>{props.release.date}</figcaption>
       </figure>
   )
 }

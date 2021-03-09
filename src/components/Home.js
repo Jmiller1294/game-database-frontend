@@ -29,7 +29,7 @@ class Home extends Component {
     
     getGames() {
         const proxy = "http://127.0.0.1:8080/"
-        const url = "https://api.igdb.com/v4/games"
+        const url = "https://api.igdb.com/v4/release_dates"
         fetch(proxy + url, {
           method: "POST",
           headers: {
@@ -37,7 +37,7 @@ class Home extends Component {
             'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
             'Authorization': `Bearer ${process.env.REACT_APP_IGDB_API_KEY}`,
         },
-        body: `fields name,first_release_date,cover.*;where first_release_date > ${Math.floor(Date.now() / 1000)};limit 20;`
+        body: `fields category,date,platform.name,game.name,game.cover.*;where date > ${Math.floor(Date.now() / 1000)}; sort date asc; limit 10;`
         })
         .then(resp => resp.json())
         .then(data => this.setState({
