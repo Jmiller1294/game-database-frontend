@@ -10,7 +10,7 @@ const getDate = (seconds) => {
 const UpcomingGame = (props) => {
   return(
       <figure className="upcoming-game" >
-        <img className="cover-art" key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
+        <img className="art" key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
         <figcaption>{getDate(props.release.date)}</figcaption>
       </figure>
   )

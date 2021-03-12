@@ -29,6 +29,10 @@
 
 .nav-item.login-button {
   margin-left: 5%;
+  margin-right: 0;
+}
+.nav-item.about-button {
+  margin-right: 0;
 }
 
 a:link {
