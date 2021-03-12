@@ -10,7 +10,7 @@ class UpcomingGames extends Component {
         {console.log(this.props.games)}
         <h2 className="upcoming-games-header">Upcoming Games</h2>
         {console.log(this.props.games)}
-        {this.props.games.slice(0,6).map(game => <UpcomingGame key={game.id} release={game} game={game.game} cover={game.game.cover}/>)}
+        {this.props.games.slice(0,5).map(game => <UpcomingGame key={game.id} release={game} game={game.game} cover={game.game.cover}/>)}
       </div>
     )
   }
