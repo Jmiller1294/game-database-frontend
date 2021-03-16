@@ -37,7 +37,7 @@ class Home extends Component {
             'Client-ID': 'yy5am1hpn894dvf7mqk3k1ifx4qfkz',
             'Authorization': `Bearer ${process.env.REACT_APP_IGDB_API_KEY}`,
         },
-        body: `fields category,date,platform.name,game.name,game.cover.*;where date > ${Math.floor(Date.now() / 1000)}; sort date asc; limit 10;`
+        body: `fields category,date,platform.name,game.name,game.cover.*;where date > ${Math.floor(Date.now() / 1000)}; sort date asc; limit 30;`
         })
         .then(resp => resp.json())
         .then(data => this.setState({
