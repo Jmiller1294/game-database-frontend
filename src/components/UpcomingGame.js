@@ -11,7 +11,7 @@ const UpcomingGame = (props) => {
   return(
       <figure className="upcoming-game" >
         <img className="art" key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
-        <figcaption>Date: {getDate(props.release.date)}</figcaption>
+        <figcaption>Release Date: {getDate(props.release.date)}</figcaption>
       </figure>
   )
 }
