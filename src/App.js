@@ -12,6 +12,17 @@ import { connect } from 'react-redux';
 import { checkLoggedInStatus } from './actions/userActions';
 import GameInfo from './components/GameInfo';
 import ConsoleInfo from './components/ConsoleInfo';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+   * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Lato', sans-serif;
+  } 
+`
 
 class App extends Component {
   componentDidMount() {
@@ -24,7 +35,7 @@ class App extends Component {
     console.log(this.props.user)
     
       return (
-        <div className="App">
+        <React.Fragment>
           <NavBar />
           <Switch>  
             <Route exact path="/" render={(props) => <Home {...props} user={this.props.user} />} /> 
@@ -35,7 +46,8 @@ class App extends Component {
             <Route exact path="/gameInfo" component={GameInfo} />
             <Route exact path="/consoleInfo" component={ConsoleInfo} />
           </Switch>
-        </div>
+          <GlobalStyle />
+        </React.Fragment>
       );
   }
 }
