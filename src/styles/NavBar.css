@@ -1,23 +1,6 @@
-#navbar {
-  position: relative;
-  background-color:grey;
-  width: auto;
-  height: 25px;
-  padding: 10px;
-  margin: 0px auto 0px auto;
-  text-align: center;
-}
 
-.nav-item {
-  text-decoration:wavy;
-  float:left;
-  width: 70px;
-  height: 30px;
-  display: inline;
-  margin: 5px 20px 0px 0px;
-}
 
-.site-name {
+/* .site-name {
   float:left;
   height: 40px;
   display: inline;
@@ -25,30 +8,10 @@
   font: 20px Fantasy;
   width: 150px;
   color: black;
-}
+} */
 
-.nav-item.login-button {
-  margin-left: 5%;
-  margin-right: 0;
-}
-.nav-item.about-button {
-  margin-right: 0;
-}
 
-a:link {
-  text-decoration: none;
-  color: white;
-}
 
-a:visited {
-  color: white;
-}
 
-a:hover {
-  color: blue;
-}
 
-a.site-name:link {
-  color: black
-}
 
