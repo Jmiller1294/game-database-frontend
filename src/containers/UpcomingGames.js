@@ -1,9 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import UpcomingGame from '../components/UpcomingGame';
 
-class UpcomingGames extends Component {
+export const UpcomingGamesCont = styled.div`
+   position: relative;
+   height: 350px;
+   color: white;
+   text-align: center;
+   padding: 10px;
+`
 
-  sortDuplicates(data) {
+const Header = styled.h2`
+  text-align: center;
+`
+
+const GamesList = styled.ul`
+  list-style: none;
+`
+
+const GameItem = styled.li`
+   float: left;
+   width: 20%;
+`
+
+const UpcomingGames = props => {
+
+  const sortDuplicates = data =>{
     const array = data
     const unique = Array.from(new Set(array.map(a => a.game.id)))
       .map(id => {
@@ -13,14 +35,14 @@ class UpcomingGames extends Component {
   }
 
 
-  render() {
-    return (
-      <div className="upcoming-games-container">
-        <h2 className="upcoming-games-header">Upcoming Games</h2>
-        {}
-        {this.sortDuplicates(this.props.games).slice(0,5).map(game => <UpcomingGame key={game.id} release={game} game={game.game} cover={game.game.cover}/>)}
-      </div>
-    )
-  }
+  return (
+    <UpcomingGamesCont>
+      <Header>Upcoming Games</Header>
+        <GamesList> 
+        {sortDuplicates(props.games).slice(0,5)
+        .map(game => <GameItem><UpcomingGame key={game.id} release={game} game={game.game} cover={game.game.cover}/></GameItem>)}
+        </GamesList>
+    </UpcomingGamesCont>
+  )
 }
 export default UpcomingGames;

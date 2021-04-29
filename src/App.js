@@ -1,7 +1,7 @@
 import './styles/App.css';
 import { Redirect, Route , Switch} from 'react-router-dom';
 import React, { Component } from 'react';
-import Home from './components/Home';
+import Homepage from './containers/Homepage';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Games from './containers/Games';
@@ -38,7 +38,7 @@ class App extends Component {
         <React.Fragment>
           <NavBar />
           <Switch>  
-            <Route exact path="/" render={(props) => <Home {...props} user={this.props.user} />} /> 
+            <Route exact path="/" render={(props) => <Homepage {...props} user={this.props.user} />} /> 
             <Route exact path="/login" component={Login} />
             <Route exact path="/games" component={Games} />
             <Route exact path="/consoles" component={Consoles} />
