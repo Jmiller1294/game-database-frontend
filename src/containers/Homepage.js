@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
+import { logout } from '../actions/userActions';
 import styled from 'styled-components';
 import UpcomingGames from './UpcomingGames';
 import Articles from './Articles';
@@ -66,10 +67,18 @@ class Homepage extends Component {
   render() {
       console.log(this.props)
           return(
-              <div className="homepage">
+            <Grid>
+              <Row>
+                <Col size={1}>
                   <UpcomingGames games={this.state.games}/>
+                </Col>
+              </Row>
+              <Row>
+                <Col size={1}>
                   <Articles articles={this.state.articles}/>
-              </div>
+                </Col>
+              </Row>
+            </Grid>
           )
       }
   
