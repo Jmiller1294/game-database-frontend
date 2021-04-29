@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import UpcomingGame from '../components/UpcomingGame';
 
 export const UpcomingGamesCont = styled.div`
-   position: relative;
-   height: 350px;
-   color: white;
-   text-align: center;
-   padding: 10px;
+  position: relative;
+  height: 350px;
+  color: white;
+  text-align: center;
+  padding: 10px;
 `
 
 const Header = styled.h2`
@@ -20,7 +20,9 @@ const GamesList = styled.ul`
 
 const GameItem = styled.li`
    float: left;
-   width: 20%;
+   width: 18%;
+   height: 210px;
+   margin-right: 10px;
 `
 
 const UpcomingGames = props => {
@@ -39,8 +41,10 @@ const UpcomingGames = props => {
     <UpcomingGamesCont>
       <Header>Upcoming Games</Header>
         <GamesList> 
-        {sortDuplicates(props.games).slice(0,5)
-        .map(game => <GameItem><UpcomingGame key={game.id} release={game} game={game.game} cover={game.game.cover}/></GameItem>)}
+          {sortDuplicates(props.games).slice(0,5)
+          .map(game => { return <GameItem><UpcomingGame key={game.id} release={game} 
+            game={game.game} cover={game.game.cover}/></GameItem>})
+          }
         </GamesList>
     </UpcomingGamesCont>
   )

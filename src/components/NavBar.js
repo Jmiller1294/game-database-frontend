@@ -1,13 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const Row = styled.div`
+const Row = styled.div`
+   width: 100%;
    display: flex;
    background-color: #050505;
    height: 42px;
-`;
+`
 
-export const Logo = styled.a`
+const Col = styled.div`
+    flex: ${ (props) => props.size};
+    height: 100%;
+`
+
+const Logo = styled.a`
     float: left;
     font: 20px Fantasy;
     text-decoration: none;
@@ -20,7 +26,7 @@ export const Logo = styled.a`
     }
 `
 
-export const Nav = styled.ul`
+const Nav = styled.ul`
     display: inline;
     list-style: none;
     float: right;
@@ -28,12 +34,13 @@ export const Nav = styled.ul`
     padding: 13px;
 `
 
-export const NavItem = styled.li`
+const NavItem = styled.li`
     padding-left: 15px;
     display: inline;
     color: #fff;
 `
-export const Link = styled.a`
+
+const Link = styled.a`
     text-decoration: none;
      &:visited,&:link {
         color: #fff;
@@ -46,14 +53,16 @@ export const Link = styled.a`
 const NavBar = () => {
     return (
         <Row>
-            <Logo href="/">Game Database</Logo>
-            <Nav>
-                <NavItem className="nav-item"></NavItem>
-                <NavItem className="nav-item"><Link href="/games">Games</Link></NavItem>
-                <NavItem className="nav-item"><Link href="/consoles">Consoles</Link></NavItem>
-                <NavItem className="nav-item about-button"><Link href="/about">About</Link></NavItem>
-                <NavItem className="nav-item login-button"><Link href="/login">Login</Link></NavItem>
-            </Nav>
+            <Col size={1}>
+                <Logo href="/">Game Database</Logo>
+                <Nav>
+                    <NavItem className="nav-item"></NavItem>
+                    <NavItem className="nav-item"><Link href="/games">Games</Link></NavItem>
+                    <NavItem className="nav-item"><Link href="/consoles">Consoles</Link></NavItem>
+                    <NavItem className="nav-item about-button"><Link href="/about">About</Link></NavItem>
+                    <NavItem className="nav-item login-button"><Link href="/login">Login</Link></NavItem>
+                </Nav>
+            </Col>
         </Row>
     )
 }
