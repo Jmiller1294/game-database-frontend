@@ -9,6 +9,12 @@ const Game = styled.figure`
 const GameImage = styled.img`
   width: 100%;
   height: 200px;
+
+  &:hover {
+    -moz-box-shadow: 0 0 10px #777777;
+    -webkit-box-shadow: 0 0 10px #777777;
+    box-shadow: 0 0 10px #777777;
+  }
 `
 const ReleaseDate = styled.figcaption`
 `
