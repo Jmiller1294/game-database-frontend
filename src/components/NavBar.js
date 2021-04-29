@@ -18,6 +18,7 @@ const Logo = styled.a`
     font: 20px Fantasy;
     text-decoration: none;
     padding: 10px;
+    padding-left: 20px;
     &:visited,&:link {
         color: #fff;
     }
@@ -32,6 +33,7 @@ const Nav = styled.ul`
     float: right;
     margin: 0;
     padding: 13px;
+    padding-right: 25px;
 `
 
 const NavItem = styled.li`

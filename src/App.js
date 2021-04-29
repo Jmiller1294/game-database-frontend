@@ -30,7 +30,6 @@ class App extends Component {
     //this.props.checkLoggedInStatus()
   }
   
-  
   render() {
     console.log(this.props.loggedIn)
     console.log(this.props.user)

@@ -24,10 +24,10 @@ const UpcomingGame = (props) => {
   }
 
   return(
-      <Game>
-        <GameImage key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
-        <ReleaseDate>Release Date: {getDate(props.release.date)}</ReleaseDate>
-      </Game>
+    <Game>
+      <GameImage key={props.release.id} src={props.cover.url} alt="Game Coming soon"/>
+      <ReleaseDate>Release Date: {getDate(props.release.date)}</ReleaseDate>
+    </Game>
   )
 }
 export default UpcomingGame;

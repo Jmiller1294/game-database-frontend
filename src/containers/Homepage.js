@@ -4,9 +4,12 @@ import { logout } from '../actions/userActions';
 import styled from 'styled-components';
 import UpcomingGames from './UpcomingGames';
 import Articles from './Articles';
+import backgroundPic from '../assets/homepage.jpg';
 
 export const Grid = styled.div`
-
+  background-image: url(${backgroundPic});
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 `
 export const Row = styled.div`
   display: flex;
@@ -15,6 +18,7 @@ export const Col = styled.div`
   flex: ${ (props) => props.size};
   height: 100%;
 `
+
 
 class Homepage extends Component {
 
