@@ -1,28 +1,65 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const InfoContainer = styled.div`
+  padding: 30px;
+  min-height: 1200px;
+  max-height: 1800;
+  margin: 40px;
+  text-align: left;
+  background-color: grey;
+  border-radius: 25px;
+`
+const GameTitle = styled.h1`
+  text-decoration: underline;
+  margin-bottom: 10px;
+`
+const GameCover = styled.img`
+  margin-top: 0;
+  width: 150px;
+  height: 200px;
+`
+const GameRating = styled.p`
+  font-size: 30px;
+`
+const PlatformList = styled.ul`
+  padding: 15px;
+  max-height: 100px;
+`
+const VideoContainer = styled.div`
+  margin: 10px 0 10px 0;
+`
+const ScreenShotContainer = styled.div`
+   margin: 10px 0 10px 0;
+`
+const SimilarGamesContainer = styled.div`
+  margin: 10px 0 10px 0;
+`
+
 
 const GameInfo = (props) => {
   return (
       <>
         {props.location.game ?
-          <div className="info-container">
-            <h1 className="game-title">{props.location.game.name}</h1>
-            <img className="cover" src={props.location.game.cover.url} alt="cover"></img>
-            <p className="game-rating">Game Rating: {Math.floor(props.location.game.rating)}/100</p>
+          <InfoContainer>
+            <GameTitle>{props.location.game.name}</GameTitle>
+            <GameCover src={props.location.game.cover.url} alt="cover"></GameCover>
+            <GameRating>Game Rating: {Math.floor(props.location.game.rating)}/100</GameRating>
             <h3>Platforms</h3>
-            <ul className="platform-list">{props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</ul>
+            <PlatformList>{props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
             <h3>Videos</h3>
-            <div className="video-container">
-            {props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
-            </div>
+            <VideoContainer>
+              {props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
+            </VideoContainer>
             <h3>Screenshots</h3>
-            <div className="screenshot-container">
+            <ScreenShotContainer>
               {props.location.game.screenshots.map(screenshot => <img className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
-            </div> 
+            </ScreenShotContainer> 
             <h3>Similar Games</h3>
-            <div className="similar-games-container">
+            <SimilarGamesContainer>
               {props.location.game.similar_games.map(game => <img className="similar-game" src={game.cover.url} alt="similar games"></img>)}
-            </div>
-          </div>
+            </SimilarGamesContainer>
+          </InfoContainer>
         :
           <h1>No Game Found</h1>
         } 
