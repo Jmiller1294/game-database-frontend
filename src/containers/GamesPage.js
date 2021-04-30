@@ -18,8 +18,9 @@ export const Col = styled.div`
 const GamesContainer = styled.div`
 
 `
-const SerachBar = styled.form`
+const SearchBar = styled.form`
   margin-top: 50px;
+  margin-bottom: 50px;
   text-align: center;
 `
 const SearchInput = styled.input`
@@ -34,6 +35,9 @@ const GamesList = styled.ul`
 `
 const GameItem = styled.li`
   width: 100%;
+  height: 220px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid grey;
 `
 
 
@@ -72,14 +76,15 @@ class Games extends Component {
   }
 
   render(){
+    console.log(this.props.games)
     return (
       <Grid>
         <Row>
           <Col size={1}>
-              <SerachBar onSubmit={(event) => this.handleSubmit(event)}>
+              <SearchBar onSubmit={(event) => this.handleSubmit(event)}>
                 <SearchInput onChange={(event) => this.handleChange(event)} type="search" name="searchTerm" value={this.state.searchTerm}/>
                 <SearchButton type="submit" value="Submit">Search</SearchButton>
-              </SerachBar>
+              </SearchBar>
           </Col>
         </Row>
         <Row>
