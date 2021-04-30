@@ -1,10 +1,10 @@
 import { Redirect, Route , Switch} from 'react-router-dom';
 import React, { Component } from 'react';
-import Homepage from './containers/Homepage';
+import HomePage from './containers/HomePage';
 import Registration from './components/Registration';
 import Login from './components/Login';
-import Games from './containers/Games';
-import Consoles from './containers/Consoles';
+import GamesPage from './containers/GamesPage';
+import ConsolesPage from './containers/ConsolesPage';
 import About from './components/About';
 import NavBar from './components/NavBar';
 import { connect } from 'react-redux';
@@ -37,10 +37,10 @@ class App extends Component {
       <React.Fragment>
         <NavBar />
           <Switch>  
-          <Route exact path="/" render={(props) => <Homepage {...props} user={this.props.user} />} /> 
+          <Route exact path="/" render={(props) => <HomePage {...props} user={this.props.user} />} /> 
           <Route exact path="/login" component={Login} />
-          <Route exact path="/games" component={Games} />
-          <Route exact path="/consoles" component={Consoles} />
+          <Route exact path="/games" component={GamesPage} />
+          <Route exact path="/consoles" component={ConsolesPage} />
           <Route exact path="/about" component={About} />
           <Route exact path="/gameInfo" component={GameInfo} />
           <Route exact path="/consoleInfo" component={ConsoleInfo} />

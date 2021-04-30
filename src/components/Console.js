@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const Xbox = styled.div`
+`
+
 
 const Console = (props) => {
   if(props.console.name.includes("Xbox")) {

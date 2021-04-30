@@ -1,6 +1,31 @@
 import React, { useState, useEffect } from 'react';
-import Console from '../components/Console'
-import '../styles/Consoles.css'
+import Console from '../components/Console';
+import styled from 'styled-components';
+
+
+const ConsolesContainer = styled.div`
+  width: 100%;
+  position: relative;
+  color: white;
+  padding-left: 50px;
+  height: 500px;
+`
+
+const XboxHeader = styled.h2`
+  text-decoration: underline;
+`
+
+const PlaystationHeader = styled.h2`
+  position: relative;
+  top: 200px;
+  text-decoration: underline;
+`
+
+const NintendoHeader = styled.h2`
+  top: 300px;
+  position: relative;
+  text-decoration: underline;
+`
 
 const Consoles = props => {
   
@@ -23,12 +48,12 @@ const Consoles = props => {
     
    
   return (
-    <div className="console-container">
-      <h2 className="xbox-console-header">Xbox</h2>
-      <h2 className="playstation-console-header">Playstation</h2>
-      <h2 className="nintendo-console-header">Nintendo</h2>
+    <ConsolesContainer>
+      <XboxHeader>Xbox</XboxHeader>
+      <PlaystationHeader>Playstation</PlaystationHeader>
+      <NintendoHeader>Nintendo</NintendoHeader>
       {state.consoles && state.consoles.map(console => <Console key={console.id} console={console} />)}
-    </div>
+    </ConsolesContainer>
   )
 }
 export default Consoles;
