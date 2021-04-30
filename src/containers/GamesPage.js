@@ -3,6 +3,39 @@ import Game from '../components/Game';
 import { connect } from 'react-redux';
 import { addGame } from '../actions/gameActions';
 import '../styles/Games.css';
+import styled from 'styled-components';
+
+export const Grid = styled.div`
+  
+`
+export const Row = styled.div`
+  display: flex;
+`
+export const Col = styled.div`
+  flex: ${ (props) => props.size};
+  height: 100%;
+`
+const GamesContainer = styled.div`
+
+`
+const SerachBar = styled.form`
+  margin-top: 50px;
+  text-align: center;
+`
+const SearchInput = styled.input`
+  width: 300px;
+`
+const SearchButton = styled.button`
+  margin-left: 0;
+`
+const GamesList = styled.ul`
+  list-style: none;
+  width: 100%;
+`
+const GameItem = styled.li`
+  width: 100%;
+`
+
 
 class Games extends Component {
 
@@ -40,15 +73,26 @@ class Games extends Component {
 
   render(){
     return (
-      <div>
-        <div>
-          <form onSubmit={(event) => this.handleSubmit(event)} id="search">
-            <input onChange={(event) => this.handleChange(event)} id="search-bar" type="search" name="searchTerm" value={this.state.searchTerm} />
-            <button id="search-button" type="submit" value="Submit">Search</button>
-          </form>
-        </div>
-        {this.props.games.games && this.props.games.games.map(game => <Game key={game.id} game={game}/>)}
-      </div>
+      <Grid>
+        <Row>
+          <Col size={1}>
+              <SerachBar onSubmit={(event) => this.handleSubmit(event)}>
+                <SearchInput onChange={(event) => this.handleChange(event)} type="search" name="searchTerm" value={this.state.searchTerm}/>
+                <SearchButton type="submit" value="Submit">Search</SearchButton>
+              </SerachBar>
+          </Col>
+        </Row>
+        <Row>
+          <Col size={1}>
+            <GamesContainer>
+              <GamesList>
+                {this.props.games.games && this.props.games.games
+                .map(game => <GameItem><Game key={game.id} game={game}/></GameItem>)}
+              </GamesList>
+            </GamesContainer>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
