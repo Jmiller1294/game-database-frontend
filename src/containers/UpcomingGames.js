@@ -29,8 +29,7 @@ const UpcomingGames = props => {
 
   const sortDuplicates = data =>{
     const array = data
-    const unique = Array.from(new Set(array.map(a => a.game.id)))
-      .map(id => {
+    const unique = Array.from(new Set(array.map(a => a.game.id))).map(id => {
         return array.find(a => a.game.id === id)
       })
     return unique

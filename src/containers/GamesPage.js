@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Game from '../components/Game';
 import { connect } from 'react-redux';
 import { addGame } from '../actions/gameActions';
-import '../styles/Games.css';
 import styled from 'styled-components';
 
 export const Grid = styled.div`

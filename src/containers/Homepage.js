@@ -64,26 +64,40 @@ class Homepage extends Component {
   componentDidMount() {
       this.getGames()
       this.getArticles()
+      this.getToken()
   }
 
+
+  getToken() {
+    const url = "https://id.twitch.tv/oauth2/token?client_id=yy5am1hpn894dvf7mqk3k1ifx4qfkz&client_secret=dr4jl32fbhp26p0y53tg2fvqvp8jo5&grant_type=client_credentials"
+    fetch(url, {
+      method: "POST",
+        headers: {
+          'Accept': 'application/json',
+        },
+      })
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+  }
  
   render() {
-      console.log(this.props)
-          return(
-            <Grid>
-              <Row>
-                <Col size={1}>
-                  <UpcomingGames games={this.state.games}/>
-                </Col>
-              </Row>
-              <Row>
-                <Col size={1}>
-                  <Articles articles={this.state.articles}/>
-                </Col>
-              </Row>
-            </Grid>
-          )
-      }
-  
+    console.log(this.props)
+      return(
+        <Grid>
+          <Row>
+            <Col size={1}>
+              <UpcomingGames games={this.state.games}/>
+            </Col>
+          </Row>
+          <Row>
+            <Col size={1}>
+              <Articles articles={this.state.articles}/>
+            </Col>
+          </Row>
+        </Grid>
+      )
+  }
 }
 export default connect(null, { logout })(Homepage);
+
+
