@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { logout } from '../actions/userActions';
 
 const Row = styled.div`
    width: 100%;
@@ -52,20 +54,38 @@ const Link = styled.a`
     }
 `
 
-const NavBar = () => {
-    return (
-        <Row>
-            <Col size={1}>
-                <Logo href="/">Game Database</Logo>
-                <Nav>
-                    <NavItem className="nav-item"></NavItem>
-                    <NavItem className="nav-item"><Link href="/games">Games</Link></NavItem>
-                    <NavItem className="nav-item"><Link href="/consoles">Consoles</Link></NavItem>
-                    <NavItem className="nav-item about-button"><Link href="/about">About</Link></NavItem>
-                    <NavItem className="nav-item login-button"><Link href="/login">Login</Link></NavItem>
-                </Nav>
-            </Col>
-        </Row>
-    )
+class NavBar extends Component {
+
+    handleLogout() {
+        this.props.logout()
+        this.props.history.push("/login");
+    }
+
+
+    render() {
+        return (
+            <Row>
+                <Col size={1}>
+                    <Logo href="/">Game Database</Logo>
+                    <Nav>
+                        <NavItem className="nav-item"></NavItem>
+                        <NavItem className="nav-item"><Link href="/games">Games</Link></NavItem>
+                        <NavItem className="nav-item"><Link href="/consoles">Consoles</Link></NavItem>
+                        <NavItem className="nav-item about-button"><Link href="/about">About</Link></NavItem>
+                        {this.props.loggedIn === true ?
+                        <NavItem onClick={() => this.handleLogout()} className="nav-item login-button"><Link href="/login">Logout</Link></NavItem>
+                        : <NavItem className="nav-item login-button"><Link href="/login">Login</Link></NavItem>
+                        }
+                    </Nav>
+                </Col>
+            </Row>
+        )
+    }
+   
 }
-export default NavBar;
+const mapStateToProps = (state) => ({
+    user: state.user.currentUser,
+    loggedIn: state.user.loggedIn
+  })
+
+export default connect(mapStateToProps, { logout } )(NavBar);

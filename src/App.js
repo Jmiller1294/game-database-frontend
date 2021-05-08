@@ -27,33 +27,33 @@ export const GlobalStyle = createGlobalStyle`
 
 class App extends Component {
   componentDidMount() {
-    //this.props.checkLoggedInStatus()
+    this.props.checkLoggedInStatus()
   }
   
   render() {
-    console.log(this.props.loggedIn)
-    console.log(this.props.user)
-    return (
-      <React.Fragment>
-        <NavBar />
-          <Switch>  
-          <Route exact path="/" render={(props) => <HomePage {...props} user={this.props.user} />} /> 
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/games" component={GamesPage} />
-          <Route exact path="/consoles" component={ConsolesPage} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/gameInfo" component={GameInfo} />
-          <Route exact path="/consoleInfo" component={ConsoleInfo} />
-        </Switch>
-        <GlobalStyle />
-      </React.Fragment>
-    );
+    console.log(this.props)
+      return (
+        <React.Fragment>
+          <NavBar />
+          <Switch>
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/" render={(props) => <HomePage {...props} />} />
+            <Route exact path="/games" component={GamesPage} />
+            <Route exact path="/consoles" component={ConsolesPage} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/gameInfo" component={GameInfo} />
+            <Route exact path="/consoleInfo" component={ConsoleInfo} />
+          </Switch>
+          <GlobalStyle />
+        </React.Fragment>
+      );
   }
 }
 
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
-  loggedIn: state.user.logged_in
+  loggedIn: state.user.loggedIn
 })
 
 export default connect(mapStateToProps, {checkLoggedInStatus})(App);
+//<Route exact path="/login" component={Login} />

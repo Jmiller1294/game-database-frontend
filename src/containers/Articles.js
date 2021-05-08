@@ -34,7 +34,7 @@ const Articles = (props) => {
       <ArticlesHeader>Recent Articles</ArticlesHeader>
         <ArticleList>
           {props.articles.slice(0,15)
-          .map((article, index) => (<ArticleItem><Article key={index} article={article}/></ArticleItem>))}
+          .map((article, index) => (<ArticleItem key={index}><Article article={article}/></ArticleItem>))}
         </ArticleList>
     </ArticlesContainer>
   )

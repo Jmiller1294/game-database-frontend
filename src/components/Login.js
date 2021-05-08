@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/userActions';
 import "../styles/Login.css"
 import styled from 'styled-components';
+import { checkLoggedInStatus } from '../actions/userActions';
+import Console from './Console';
+import { Redirect, Route , Switch, useHistory} from 'react-router-dom';
 
 const LoginContainer = styled.div`
 
@@ -16,7 +19,7 @@ const LoginFieldset = styled.fieldset`
     width: 100px;
     margin: 0px auto 0px auto;
 `
-const LoginButton = styled.form`
+const LoginButton = styled.button`
     margin: 10px;
 `
 
@@ -34,15 +37,16 @@ class Login extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
+        console.log(this.state)
         this.props.startLogin(this.state)
         this.setState({
             email: "",
             password: ""
         })
-        this.props.history.push("/home")
+        this.props.history.push('/');
     }
 
-
+    
     render () {
             return(
                 <LoginContainer>
@@ -53,11 +57,19 @@ class Login extends Component {
                             <br></br>
                             <input onChange={event => this.handleChange(event)} type="text" name="password" value={this.state.password} placeholder="Password" />
                             <br></br>
-                            <button type="submit" value="Submit">Login</button>
+                            <LoginButton type="submit" value="Submit">Login</LoginButton>
                         </LoginFieldset>
                     </LoginForm>
                 </LoginContainer>
             )
     }
+
+    
 }
-export default connect(null, { startLogin })(Login);
+
+const mapStateToProps = (state) => ({
+    user: state.user.currentUser,
+    loggedIn: state.user.loggedIn
+  })
+
+export default connect(mapStateToProps, { startLogin })(Login);

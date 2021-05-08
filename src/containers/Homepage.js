@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
-import { logout } from '../actions/userActions';
+
 import styled from 'styled-components';
 import UpcomingGames from './UpcomingGames';
 import Articles from './Articles';
@@ -27,10 +27,7 @@ class Homepage extends Component {
       games: []
   }
   
-  handleLogout() {
-      this.props.logout()
-      this.props.history.push("/login");
-  }
+  
 
   getArticles() {
       const url = 'http://newsapi.org/v2/everything?q=games' +
@@ -65,6 +62,7 @@ class Homepage extends Component {
       this.getGames()
       this.getArticles()
       this.getToken()
+      console.log(this.props)
   }
 
 
@@ -81,7 +79,6 @@ class Homepage extends Component {
   }
  
   render() {
-    console.log(this.props)
       return(
         <Grid>
           <Row>
@@ -98,6 +95,11 @@ class Homepage extends Component {
       )
   }
 }
-export default connect(null, { logout })(Homepage);
+const mapStateToProps = (state) => ({
+  user: state.user.currentUser,
+  loggedIn: state.user.loggedIn
+})
+
+export default connect(mapStateToProps)(Homepage);
 
 
