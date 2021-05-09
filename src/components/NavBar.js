@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { logout } from '../actions/userActions';
+import styled from 'styled-components';
+
 
 const Row = styled.div`
    width: 100%;
@@ -58,9 +59,8 @@ class NavBar extends Component {
 
     handleLogout() {
         this.props.logout()
-        this.props.history.push("/login");
+        this.props.history.push("/");
     }
-
 
     render() {
         return (
@@ -68,13 +68,13 @@ class NavBar extends Component {
                 <Col size={1}>
                     <Logo href="/">Game Database</Logo>
                     <Nav>
-                        <NavItem className="nav-item"></NavItem>
-                        <NavItem className="nav-item"><Link href="/games">Games</Link></NavItem>
-                        <NavItem className="nav-item"><Link href="/consoles">Consoles</Link></NavItem>
-                        <NavItem className="nav-item about-button"><Link href="/about">About</Link></NavItem>
+                        <NavItem><Link href="/games">Games</Link></NavItem>
+                        <NavItem><Link href="/consoles">Consoles</Link></NavItem>
+                        <NavItem><Link href="/about">About</Link></NavItem>
                         {this.props.loggedIn === true ?
-                        <NavItem onClick={() => this.handleLogout()} className="nav-item login-button"><Link href="/login">Logout</Link></NavItem>
-                        : <NavItem className="nav-item login-button"><Link href="/login">Login</Link></NavItem>
+                        <NavItem onClick={() => this.handleLogout()}><Link href="/">Logout</Link></NavItem>
+                        
+                        : <NavItem><Link href="/login">Login</Link></NavItem>
                         }
                     </Nav>
                 </Col>

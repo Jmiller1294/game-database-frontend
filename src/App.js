@@ -12,6 +12,7 @@ import { checkLoggedInStatus } from './actions/userActions';
 import GameInfo from './components/GameInfo';
 import ConsoleInfo from './components/ConsoleInfo';
 import { createGlobalStyle } from 'styled-components';
+import ProfilePage from './containers/ProfilePage';
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -36,24 +37,23 @@ class App extends Component {
         <React.Fragment>
           <NavBar />
           <Switch>
-            <Route exact path="/login" component={Login} />
             <Route exact path="/" render={(props) => <HomePage {...props} />} />
+            <Route exact path="/login" component={Login} />
             <Route exact path="/games" component={GamesPage} />
             <Route exact path="/consoles" component={ConsolesPage} />
             <Route exact path="/about" component={About} />
             <Route exact path="/gameInfo" component={GameInfo} />
             <Route exact path="/consoleInfo" component={ConsoleInfo} />
+            <Route exact path="/profile" component={ProfilePage} />
           </Switch>
           <GlobalStyle />
         </React.Fragment>
       );
   }
 }
-
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
   loggedIn: state.user.loggedIn
 })
 
 export default connect(mapStateToProps, {checkLoggedInStatus})(App);
-//<Route exact path="/login" component={Login} />

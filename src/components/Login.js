@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { startLogin } from '../actions/userActions';
 import "../styles/Login.css"
 import styled from 'styled-components';
-import { checkLoggedInStatus } from '../actions/userActions';
-import Console from './Console';
-import { Redirect, Route , Switch, useHistory} from 'react-router-dom';
+
 
 const LoginContainer = styled.div`
 
@@ -46,7 +44,6 @@ class Login extends Component {
         this.props.history.push('/');
     }
 
-    
     render () {
             return(
                 <LoginContainer>

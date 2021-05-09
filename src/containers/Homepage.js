@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { connect } from 'react-redux';
-
 import styled from 'styled-components';
 import UpcomingGames from './UpcomingGames';
 import Articles from './Articles';
@@ -27,8 +26,6 @@ class Homepage extends Component {
       games: []
   }
   
-  
-
   getArticles() {
       const url = 'http://newsapi.org/v2/everything?q=games' +
       `&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
@@ -61,22 +58,21 @@ class Homepage extends Component {
   componentDidMount() {
       this.getGames()
       this.getArticles()
-      this.getToken()
-      console.log(this.props)
+      //this.getToken()
   }
 
 
-  getToken() {
-    const url = "https://id.twitch.tv/oauth2/token?client_id=yy5am1hpn894dvf7mqk3k1ifx4qfkz&client_secret=dr4jl32fbhp26p0y53tg2fvqvp8jo5&grant_type=client_credentials"
-    fetch(url, {
-      method: "POST",
-        headers: {
-          'Accept': 'application/json',
-        },
-      })
-      .then(resp => resp.json())
-      .then(data => console.log(data))
-  }
+  // getToken() {
+  //   const url = "https://id.twitch.tv/oauth2/token?client_id=yy5am1hpn894dvf7mqk3k1ifx4qfkz&client_secret=dr4jl32fbhp26p0y53tg2fvqvp8jo5&grant_type=client_credentials"
+  //   fetch(url, {
+  //     method: "POST",
+  //       headers: {
+  //         'Accept': 'application/json',
+  //       },
+  //     })
+  //     .then(resp => resp.json())
+  //     .then(data => console.log(data))
+  // }
  
   render() {
       return(
