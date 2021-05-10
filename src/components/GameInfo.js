@@ -49,6 +49,10 @@ class GameInfo extends Component {
     this.props.addFavorite(this.props.location.game)
   }
 
+  componentDidMount() {
+    console.log(this.props.favorites)
+  }
+
   render() {
     return (
         <>
@@ -80,4 +84,10 @@ class GameInfo extends Component {
     )
   }
 }
-export default connect(null, { addFavorite })(GameInfo);
+const mapStateToProps = (state) => ({
+  user: state.user.currentUser,
+  loggedIn: state.user.loggedIn,
+  favorites: state.games.favorites
+})
+
+export default connect(mapStateToProps, { addFavorite })(GameInfo);

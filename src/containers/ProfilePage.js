@@ -39,6 +39,9 @@ const coverArt = styled.img`
 
 class ProfilePage extends Component {
 
+  
+
+
   render() {
     return (
       <ProfileContainer>
@@ -47,7 +50,7 @@ class ProfilePage extends Component {
         <FavoritesContainer>
           <FavoritesHeader>Favorite Games</FavoritesHeader>
           <GamesList>
-
+            {this.props.favorites.map(favorite => console.log(favorite))}
           </GamesList>
         </FavoritesContainer>
       </ProfileContainer>
@@ -56,7 +59,8 @@ class ProfilePage extends Component {
 }
 const mapStateToProps = (state) => ({
   user: state.user.currentUser,
-  loggedIn: state.user.loggedIn
+  loggedIn: state.user.loggedIn,
+  favorites: state.games.favorites
 })
 
 export default connect(mapStateToProps)(ProfilePage);
