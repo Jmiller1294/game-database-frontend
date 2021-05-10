@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { addGame } from '../actions/gameActions';
+import { addFavorite } from '../actions/gameActions';
 
 const InfoContainer = styled.div`
   padding: 30px;
@@ -46,7 +46,7 @@ const FavoriteButton = styled.button`
 class GameInfo extends Component {
 
   handleClick = () => {
-
+    this.props.addFavorite(this.props.location.game)
   }
 
   render() {
@@ -66,11 +66,11 @@ class GameInfo extends Component {
               </VideoContainer>
               <h3>Screenshots</h3>
               <ScreenShotContainer>
-                {this.props.location.game.screenshots.map(screenshot => <img className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
+                {this.props.location.game.screenshots.map(screenshot => <img key={screenshot.id} className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
               </ScreenShotContainer> 
               <h3>Similar Games</h3>
               <SimilarGamesContainer>
-                {this.props.location.game.similar_games.map(game => <img className="similar-game" src={game.cover.url} alt="similar games"></img>)}
+                {this.props.location.game.similar_games.map(game => <img key={game.id} className="similar-game" src={game.cover.url} alt="similar games"></img>)}
               </SimilarGamesContainer>
             </InfoContainer>
           :
@@ -80,4 +80,4 @@ class GameInfo extends Component {
     )
   }
 }
-export default connect(null, { addGame })(GameInfo);
+export default connect(null, { addFavorite })(GameInfo);

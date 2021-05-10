@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Game from '../components/Game';
 import { connect } from 'react-redux';
-import { addGame } from '../actions/gameActions';
+import { addGames } from '../actions/gameActions';
 import styled from 'styled-components';
 
 export const Grid = styled.div`
@@ -70,7 +70,7 @@ class Games extends Component {
     body: `search "${searchTerm}"; fields name,artworks,themes.url,storyline,screenshots.url,first_release_date,rating,platforms.name,similar_games.cover.url,videos.*,cover.*;limit 20;`
     })
     .then(resp => resp.json())
-    .then(data => this.props.addGame(data))
+    .then(data => this.props.addGames(data))
     .catch(error => {console.log('error', error)})
   }
 
@@ -106,4 +106,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { addGame })(Games)
+export default connect(mapStateToProps, { addGames })(Games)
