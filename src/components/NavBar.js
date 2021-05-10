@@ -10,12 +10,10 @@ const Row = styled.div`
    background-color: #050505;
    height: 42px;
 `
-
 const Col = styled.div`
     flex: ${ (props) => props.size};
     height: 100%;
 `
-
 const Logo = styled.a`
     float: left;
     font: 20px Fantasy;
@@ -29,7 +27,6 @@ const Logo = styled.a`
         color: blue;
     }
 `
-
 const Nav = styled.ul`
     display: inline;
     list-style: none;
@@ -38,13 +35,11 @@ const Nav = styled.ul`
     padding: 13px;
     padding-right: 25px;
 `
-
 const NavItem = styled.li`
     padding-left: 15px;
     display: inline;
     color: #fff;
 `
-
 const Link = styled.a`
     text-decoration: none;
      &:visited,&:link {
@@ -63,6 +58,17 @@ class NavBar extends Component {
     }
 
     render() {
+        let NavLink;
+        let ProfileLink;
+        if(this.props.loggedIn) {
+            NavLink = <NavItem onClick={() => this.handleLogout()}><Link href="/">Logout</Link></NavItem>
+            ProfileLink = <NavItem><Link href="/profile">Profile</Link></NavItem>
+        }
+        else {
+            NavLink = <NavItem><Link href="/login">Login</Link></NavItem>
+            ProfileLink = null;
+        }
+        
         return (
             <Row>
                 <Col size={1}>
@@ -71,11 +77,11 @@ class NavBar extends Component {
                         <NavItem><Link href="/games">Games</Link></NavItem>
                         <NavItem><Link href="/consoles">Consoles</Link></NavItem>
                         <NavItem><Link href="/about">About</Link></NavItem>
-                        {this.props.loggedIn === true ?
-                        <NavItem onClick={() => this.handleLogout()}><Link href="/">Logout</Link></NavItem>
-                        
-                        : <NavItem><Link href="/login">Login</Link></NavItem>
-                        }
+                        {ProfileLink}
+                        <NavItem></NavItem>
+                        <NavItem></NavItem>
+                        <NavItem></NavItem>
+                        {NavLink}
                     </Nav>
                 </Col>
             </Row>
