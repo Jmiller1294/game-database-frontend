@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { addGame } from '../actions/gameActions';
 
 const InfoContainer = styled.div`
   padding: 30px;
@@ -36,33 +38,46 @@ const SimilarGamesContainer = styled.div`
   margin: 10px 0 10px 0;
 `
 
-const GameInfo = (props) => {
-  return (
-      <>
-        {props.location.game ?
-          <InfoContainer>
-            <GameTitle>{props.location.game.name}</GameTitle>
-            <GameCover src={props.location.game.cover.url} alt="cover"></GameCover>
-            <GameRating>Game Rating: {Math.floor(props.location.game.rating)}/100</GameRating>
-            <h3>Platforms</h3>
-            <PlatformList>{props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
-            <h3>Videos</h3>
-            <VideoContainer>
-              {props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
-            </VideoContainer>
-            <h3>Screenshots</h3>
-            <ScreenShotContainer>
-              {props.location.game.screenshots.map(screenshot => <img className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
-            </ScreenShotContainer> 
-            <h3>Similar Games</h3>
-            <SimilarGamesContainer>
-              {props.location.game.similar_games.map(game => <img className="similar-game" src={game.cover.url} alt="similar games"></img>)}
-            </SimilarGamesContainer>
-          </InfoContainer>
-        :
-          <h1>No Game Found</h1>
-        } 
-    </>
-  )
+const FavoriteButton = styled.button`
+  width: 100px;
+  display: block;
+`
+
+class GameInfo extends Component {
+
+  handleClick = () => {
+
+  }
+
+  render() {
+    return (
+        <>
+          {this.props.location.game ?
+            <InfoContainer>
+              <GameTitle>{this.props.location.game.name}</GameTitle>
+              <GameCover src={this.props.location.game.cover.url} alt="cover"></GameCover>
+              <FavoriteButton onClick={() => this.handleClick()}>favorite</FavoriteButton>
+              <GameRating>Game Rating: {Math.floor(this.props.location.game.rating)}/100</GameRating>
+              <h3>Platforms</h3>
+              <PlatformList>{this.props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
+              <h3>Videos</h3>
+              <VideoContainer>
+                {this.props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
+              </VideoContainer>
+              <h3>Screenshots</h3>
+              <ScreenShotContainer>
+                {this.props.location.game.screenshots.map(screenshot => <img className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
+              </ScreenShotContainer> 
+              <h3>Similar Games</h3>
+              <SimilarGamesContainer>
+                {this.props.location.game.similar_games.map(game => <img className="similar-game" src={game.cover.url} alt="similar games"></img>)}
+              </SimilarGamesContainer>
+            </InfoContainer>
+          :
+            <h1>No Game Found</h1>
+          } 
+      </>
+    )
+  }
 }
-export default GameInfo;
+export default connect(null, { addGame })(GameInfo);

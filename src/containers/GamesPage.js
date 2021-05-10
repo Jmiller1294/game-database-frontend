@@ -91,7 +91,7 @@ class Games extends Component {
             <GamesContainer>
               <GamesList>
                 {this.props.games.games && this.props.games.games
-                .map(game => <GameItem><Game key={game.id} game={game}/></GameItem>)}
+                .map(game => <GameItem key={game.id}><Game game={game}/></GameItem>)}
               </GamesList>
             </GamesContainer>
           </Col>
