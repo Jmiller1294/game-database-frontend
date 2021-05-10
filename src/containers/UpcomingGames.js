@@ -37,7 +37,15 @@ const UpcomingGames = props => {
 
 
   return (
-   <div>Hello</div>
+    <UpcomingGamesCont>
+    <Header>Upcoming Games</Header>
+      <GamesList> 
+        {sortDuplicates(props.games).slice(0,5)
+        .map(game => { return <GameItem><UpcomingGame key={game.id} release={game} 
+          game={game.game} cover={game.game.cover}/></GameItem>})
+        }
+      </GamesList>
+    </UpcomingGamesCont>
   )
 }
 export default UpcomingGames;
