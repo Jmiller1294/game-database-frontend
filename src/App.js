@@ -1,5 +1,6 @@
-import { Route , Switch } from 'react-router-dom';
 import React, { Component } from 'react';
+import { Route , Switch } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import HomePage from './containers/HomePage';
 import Registration from './components/Registration';
 import Login from './components/Login';
@@ -44,7 +45,7 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/gameInfo" component={GameInfo} />
             <Route exact path="/consoleInfo" component={ConsoleInfo} />
-            <Route exact path="/profile" component={ProfilePage} />
+            <ProtectedRoute exact path="/profile" component={ProfilePage} />
           </Switch>
           <GlobalStyle />
         </React.Fragment>

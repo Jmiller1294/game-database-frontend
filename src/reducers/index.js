@@ -7,7 +7,7 @@ import gamesReducer from './gamesReducer';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['games']
+    whitelist: ['games', 'user']
 }
 
 const rootReducer = combineReducers({
