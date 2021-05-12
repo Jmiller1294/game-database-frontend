@@ -12,9 +12,9 @@ export const addFavorite = (data) => {
   }
 }
 
-export const removeFavorite = (data) => {
+export const removeFavorite = (id) => {
   return {
     type: "REMOVE_FAVORITE",
-    payload: data
+    id: id
   }
 }

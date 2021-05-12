@@ -51,8 +51,8 @@ const RemoveButton = styled.button`
 
 class ProfilePage extends Component {
 
-  handleClick = () => {
-   this.removeFavorite()
+  handleClick = (id) => {
+   this.props.removeFavorite(id)
   }
 
   render() {
@@ -66,7 +66,7 @@ class ProfilePage extends Component {
             {this.props.favorites.map(favorite => <GameItem key={favorite.id}>
               <b>{favorite.name}</b>
               <GameArt src={favorite.cover.url}></GameArt>
-              <RemoveButton onClick={() => this.handleClick()}>Remove From List</RemoveButton>
+              <RemoveButton onClick={() => this.handleClick(favorite.id)}>Remove From List</RemoveButton>
             </GameItem>)}
           </GamesList>
         </FavoritesContainer>

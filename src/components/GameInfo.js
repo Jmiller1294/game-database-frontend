@@ -65,7 +65,7 @@ class GameInfo extends Component {
               <PlatformList>{this.props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
               <h3>Videos</h3>
               <VideoContainer>
-                {this.props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
+                {this.props.location.game.videos && this.props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
               </VideoContainer>
               <h3>Screenshots</h3>
               <ScreenShotContainer>

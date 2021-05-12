@@ -14,7 +14,9 @@ export default function gamesReducer(state = INITIAL_STATE, action) {
         ...state, favorites: [...state.favorites, action.payload]
       }
     case "REMOVE_FAVORITE":
-      return console.log('removed')
+      return {
+        ...state, favorites: state.favorites.filter(item => item.id !== action.id)
+      }
     default:
       return state;
   }
