@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 import { addFavorite } from '../actions/gameActions';
 
 const InfoContainer = styled.div`
+  color: white; 
   padding: 30px;
   min-height: 1200px;
   max-height: 1800;
   margin: 40px;
   text-align: left;
-  background-color: grey;
   border-radius: 25px;
 `
 const GameTitle = styled.h1`
-  text-decoration: underline;
   margin-bottom: 10px;
 `
 const GameCover = styled.img`

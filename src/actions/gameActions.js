@@ -11,3 +11,10 @@ export const addFavorite = (data) => {
     payload: data
   }
 }
+
+export const removeFavorite = (data) => {
+  return {
+    type: "REMOVE_FAVORITE",
+    payload: data
+  }
+}

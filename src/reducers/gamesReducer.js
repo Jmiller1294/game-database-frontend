@@ -6,16 +6,15 @@ const INITIAL_STATE = {
 export default function gamesReducer(state = INITIAL_STATE, action) {
   switch(action.type) {
     case "ADD_GAMES":
-      console.log(state)
-      console.log(action.payload)
       return {
         ...state, games: [...action.payload]
       }
     case "ADD_FAVORITE":
-      console.log(action.payload)
       return {
         ...state, favorites: [...state.favorites, action.payload]
       }
+    case "REMOVE_FAVORITE":
+      return console.log('removed')
     default:
       return state;
   }

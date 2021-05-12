@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
+import { removeFavorite } from '../actions/gameActions';
 import profileImage from '../assets/dragon-3708746_640.jpg';
 
 
 const ProfileContainer = styled.div`
+  color: white;
   text-align: center;
   margin: 50px;
   height: 1200px;
 `
 
-const Username = styled.h1`
-  margin: 10px auto 10px auto;
+const Username = styled.h2`
+  margin: 10px auto 0 auto;
 `
 const ProfileIcon = styled.img`
   height: 120px;
   width: 120px;
-  margin: 10px auto 10px auto;
+  margin: 0 auto 10px auto;
   border-radius: 100px;
 `
 
@@ -43,13 +45,17 @@ const GameArt = styled.img`
   height: 190px;
 `
 
+const RemoveButton = styled.button`
+
+`
+
 class ProfilePage extends Component {
 
-  
-
+  handleClick = () => {
+   this.removeFavorite()
+  }
 
   render() {
-    console.log(this.props.favorites)
     return (
       <ProfileContainer>
         <Username>{this.props.user && this.props.user.email}</Username>
@@ -57,9 +63,10 @@ class ProfilePage extends Component {
         <FavoritesContainer>
           <FavoritesHeader>Favorite Games</FavoritesHeader>
           <GamesList>
-            {this.props.favorites.map(favorite => <GameItem>
+            {this.props.favorites.map(favorite => <GameItem key={favorite.id}>
               <b>{favorite.name}</b>
               <GameArt src={favorite.cover.url}></GameArt>
+              <RemoveButton onClick={() => this.handleClick()}>Remove From List</RemoveButton>
             </GameItem>)}
           </GamesList>
         </FavoritesContainer>
@@ -73,4 +80,4 @@ const mapStateToProps = (state) => ({
   favorites: state.games.favorites
 })
 
-export default connect(mapStateToProps)(ProfilePage);
+export default connect(mapStateToProps, { removeFavorite })(ProfilePage);
