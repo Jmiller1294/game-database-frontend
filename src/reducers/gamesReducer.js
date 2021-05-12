@@ -14,7 +14,7 @@ export default function gamesReducer(state = INITIAL_STATE, action) {
     case "ADD_FAVORITE":
       console.log(action.payload)
       return {
-        ...state, favorites: [action.payload]
+        ...state, favorites: [...state.favorites, action.payload]
       }
     default:
       return state;

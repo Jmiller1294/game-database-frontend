@@ -11,13 +11,10 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
     <Route 
       {...rest} 
       render={props => {
-        console.log(loggedIn)
         if(props && loggedIn === true) {
-          console.log(props)
           return <Component {...props} />
         }
         else {
-          console.log(props)
           return <Redirect to={
             {
               pathname: "/",
