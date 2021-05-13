@@ -11,7 +11,6 @@ const ProfileContainer = styled.div`
   margin: 50px;
   height: 1200px;
 `
-
 const Username = styled.h2`
   margin: 10px auto 0 auto;
 `
@@ -21,7 +20,6 @@ const ProfileIcon = styled.img`
   margin: 0 auto 10px auto;
   border-radius: 100px;
 `
-
 const FavoritesHeader = styled.h2`
   margin-bottom: 75px;
 `
@@ -34,17 +32,16 @@ const GamesList = styled.ul`
   width: 100%;
 `
 const GameItem = styled.li`
-   float: left;
-   width: 150px;
-   height: 200px;
-   margin-right: 20px;
+  float: left;
+  width: 150px;
+  height: 200px;
+  margin-right: 20px;
 `
 const GameArt = styled.img`
   margin-top: 10px;
   width: 100%;
   height: 190px;
 `
-
 const RemoveButton = styled.button`
 
 `

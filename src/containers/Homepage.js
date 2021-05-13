@@ -34,6 +34,7 @@ class Homepage extends Component {
       .then(data => this.setState({
           articles: data.articles
       }))
+      .catch(error => {console.log('error', error)})
   }
   
   getGames() {

@@ -10,17 +10,14 @@ const ConsolesContainer = styled.div`
   padding-left: 50px;
   height: 500px;
 `
-
 const XboxHeader = styled.h2`
   text-decoration: underline;
 `
-
 const PlaystationHeader = styled.h2`
   position: relative;
   top: 200px;
   text-decoration: underline;
 `
-
 const NintendoHeader = styled.h2`
   top: 300px;
   position: relative;
@@ -40,6 +37,7 @@ const Consoles = props => {
     .then(data => setState({
       consoles: data
     }))
+    .catch(error => {console.log('error', error)})
   }
   
   useEffect(() => {

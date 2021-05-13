@@ -9,15 +9,12 @@ export const UpcomingGamesCont = styled.div`
   text-align: center;
   padding: 10px;
 `
-
 const Header = styled.h2`
   text-align: center;
 `
-
 const GamesList = styled.ul`
   list-style: none;
 `
-
 const GameItem = styled.li`
    float: left;
    width: 18%;
@@ -48,4 +45,5 @@ const UpcomingGames = props => {
     </UpcomingGamesCont>
   )
 }
+
 export default UpcomingGames;

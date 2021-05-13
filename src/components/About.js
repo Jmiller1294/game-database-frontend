@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const Description = styled.p`
   color:  white;
 `
-
 const Container = styled.div`
   margin: 200px;
 `

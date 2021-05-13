@@ -9,7 +9,6 @@ const ConsoleInfo = (props) => {
 
   return(
     <Container>
-      {console.log(props.location.console)}
       <h3>{props.location.console.name}</h3>
       <h4>Release Date: {props.location.console.release_date}</h4>
       <h4>Company: {props.location.console.company}</h4>

@@ -19,13 +19,11 @@ const ArticleList = styled.ul`
   padding: 0;
   list-style: none;
 `
-
 const ArticleItem = styled.li`
   width: 100%;
   display: inline-block;
   margin: 0 auto 0 auto;
 `
-
 
 const Articles = (props) => {
 
@@ -39,4 +37,5 @@ const Articles = (props) => {
     </ArticlesContainer>
   )
 }
+
 export default Articles

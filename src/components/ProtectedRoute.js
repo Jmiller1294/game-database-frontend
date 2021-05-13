@@ -6,7 +6,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
    
   const loggedIn = useSelector(state => state.user.loggedIn)
   
-  
   return (
     <Route 
       {...rest} 

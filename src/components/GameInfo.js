@@ -36,7 +36,6 @@ const ScreenShotContainer = styled.div`
 const SimilarGamesContainer = styled.div`
   margin: 10px 0 10px 0;
 `
-
 const FavoriteButton = styled.button`
   width: 100px;
   display: block;
