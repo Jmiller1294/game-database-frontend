@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/userActions';
 import styled from 'styled-components';
-
+import { checkLoggedInStatus } from '../actions/userActions';
 
 const LoginContainer = styled.div`
 
@@ -39,7 +39,12 @@ class Login extends Component {
             email: "",
             password: ""
         })
-        this.props.history.push('/');
+        setTimeout(() => {  this.props.checkLoggedInStatus(); }, 500);
+        setTimeout(() => {  this.checkLogged(); }, 1000);
+    }
+
+    checkLogged() {
+        this.props.loggedIn === true ? this.props.history.push('/') : this.props.history.push('/login')
     }
 
     render () {
@@ -58,8 +63,6 @@ class Login extends Component {
                 </LoginContainer>
             )
     }
-
-    
 }
 
 const mapStateToProps = (state) => ({
@@ -67,4 +70,4 @@ const mapStateToProps = (state) => ({
     loggedIn: state.user.loggedIn
   })
 
-export default connect(mapStateToProps, { startLogin })(Login);
+export default connect(mapStateToProps, { startLogin, checkLoggedInStatus })(Login);
