@@ -13,14 +13,14 @@ const Playstation = styled.div`
   bottom: 50px;
 `
 
-const renderConsole = (props) => {
-  if(props.console.name.includes("Xbox")) {
+const renderConsole = (console) => {
+  if(console.name.includes("Xbox")) {
     return (
       <Xbox> 
          <Link to={{
           pathname: '/consoleInfo',
-          console: props.console
-        }}>{props.console.name}</Link>
+          console: console
+        }}>{console.name}</Link>
       </Xbox>
     )
   }
@@ -29,17 +29,19 @@ const renderConsole = (props) => {
       <Playstation> 
          <Link to={{
           pathname: '/consoleInfo',
-          console: props.console
-        }}>{props.console.name}</Link>
+          console: console
+        }}>{console.name}</Link>
       </Playstation>
     )
   }
 }
 
 const Console = (props) => {
+  const { console } = props;
+
   return (
     <div>
-      {renderConsole(props)}
+      {renderConsole(console)}
     </div>
   )
 }

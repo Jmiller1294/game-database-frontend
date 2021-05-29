@@ -15,16 +15,18 @@ const GameImage = styled.img`
 `
 
 const Game = (props) => {
+  const { game } = props;
+
   return (
     <GameBox>
       <GameTitle>
         <Link to={{
           pathname: '/gameInfo',
-          game: props.game
-        }}>{props.game.name}</Link>
+          game: game
+        }}>{game.name}</Link>
       </GameTitle>
-      {props.game.cover === undefined ? <p>No Image</p> 
-      : <GameImage src={props.game.cover.url} alt="Cover Art"/>}  
+      {game.cover === undefined ? <p>No Image</p> 
+      : <GameImage src={game.cover.url} alt="Cover Art"/>}  
     </GameBox>
   )
 }

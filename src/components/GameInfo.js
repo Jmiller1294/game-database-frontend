@@ -52,27 +52,29 @@ class GameInfo extends Component {
   }
 
   render() {
+    const { game } = this.props.location;
+
     return (
         <>
-          {this.props.location.game ?
+          {game ?
             <InfoContainer>
-              <GameTitle>{this.props.location.game.name}</GameTitle>
-              <GameCover src={this.props.location.game.cover.url} alt="cover"></GameCover>
+              <GameTitle>{game.name}</GameTitle>
+              <GameCover src={game.cover.url} alt="cover"></GameCover>
               <FavoriteButton onClick={() => this.handleClick()}>favorite</FavoriteButton>
-              <GameRating>Game Rating: {Math.floor(this.props.location.game.rating)}/100</GameRating>
+              <GameRating>Game Rating: {Math.floor(game.rating)}/100</GameRating>
               <h3>Platforms</h3>
-              <PlatformList>{this.props.location.game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
+              <PlatformList>{game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
               <h3>Videos</h3>
               <VideoContainer>
-                {this.props.location.game.videos && this.props.location.game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
+                {game.videos && game.videos.slice(0,4).map(video => <iframe className="" key={video.id} title={video.name} src={`https://www.youtube.com/embed/${video.video_id}`} width="360" height="300" ></iframe>) }
               </VideoContainer>
               <h3>Screenshots</h3>
               <ScreenShotContainer>
-                {this.props.location.game.screenshots.map(screenshot => <img key={screenshot.id} className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
+                {game.screenshots.map(screenshot => <img key={screenshot.id} className="screenshot" src={screenshot.url} alt="screenshot"></img>)}
               </ScreenShotContainer> 
               <h3>Similar Games</h3>
               <SimilarGamesContainer>
-                {this.props.location.game.similar_games.map(game => <img key={game.id} className="similar-game" src={game.cover.url} alt="similar games"></img>)}
+                {game.similar_games.map(game => <img key={game.id} className="similar-game" src={game.cover.url} alt="similar games"></img>)}
               </SimilarGamesContainer>
             </InfoContainer>
           :
