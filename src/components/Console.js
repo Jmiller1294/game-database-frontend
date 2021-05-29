@@ -13,8 +13,7 @@ const Playstation = styled.div`
   bottom: 50px;
 `
 
-
-const Console = (props) => {
+const renderConsole = (props) => {
   if(props.console.name.includes("Xbox")) {
     return (
       <Xbox> 
@@ -35,5 +34,13 @@ const Console = (props) => {
       </Playstation>
     )
   }
+}
+
+const Console = (props) => {
+  return (
+    <div>
+      {renderConsole(props)}
+    </div>
+  )
 }
 export default Console;

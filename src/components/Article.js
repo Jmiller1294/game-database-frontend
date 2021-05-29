@@ -22,14 +22,18 @@ const ArticleTitle = styled.figcaption`
   margin: 0 auto 40px auto;
   font-size: 20px;
 `
+
 const Article = (props) => {
+  const { article } = props;
+
+
   return (
     <ArticleBox>
-      <ArticleLink href={props.article.url} target="_blank" rel="noreferrer">
-        <ArticleImage alt="article" src={props.article.urlToImage}></ArticleImage>
+      <ArticleLink href={article.url} target="_blank" rel="noreferrer">
+        <ArticleImage alt="article" src={article.urlToImage}></ArticleImage>
       </ArticleLink> 
-      <ArticleLink href={props.article.url} target="_blank" rel="noreferrer">
-        <ArticleTitle>{props.article.title}</ArticleTitle>
+      <ArticleLink href={article.url} target="_blank" rel="noreferrer">
+        <ArticleTitle>{article.title}</ArticleTitle>
       </ArticleLink>
     </ArticleBox>
   )

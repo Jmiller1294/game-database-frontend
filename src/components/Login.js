@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/userActions';
-import "../styles/Login.css"
 import styled from 'styled-components';
 
 
@@ -35,7 +34,6 @@ class Login extends Component {
 
     handleSubmit(event) {
         event.preventDefault()
-        console.log(this.state)
         this.props.startLogin(this.state)
         this.setState({
             email: "",
