@@ -19,7 +19,7 @@ const PlaystationHeader = styled.h2`
   text-decoration: underline;
 `
 const NintendoHeader = styled.h2`
-  top: 300px;
+  top: 350px;
   position: relative;
   text-decoration: underline;
 `

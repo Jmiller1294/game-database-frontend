@@ -16,8 +16,8 @@ const GamesList = styled.ul`
   list-style: none;
 `
 const GameItem = styled.li`
-   float: left;
-   width: 18%;
+   display: inline-block;
+   width: 12%;
    height: 210px;
    margin-right: 10px;
 `

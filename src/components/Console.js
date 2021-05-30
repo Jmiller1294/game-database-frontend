@@ -12,6 +12,12 @@ const Playstation = styled.div`
   position: relative;
   bottom: 50px;
 `
+const Nintendo = styled.div`
+  margin: 10px;
+  position: relative;
+  bottom: -10px;
+`
+
 
 const renderConsole = (console) => {
   if(console.name.includes("Xbox")) {
@@ -24,13 +30,23 @@ const renderConsole = (console) => {
       </Xbox>
     )
   }
-  else {
+  else if(console.name.includes("Nintendo") || console.name.includes("Wii") || console.name.includes("GameCube")){
     return (
-      <Playstation> 
+      <Nintendo> 
          <Link to={{
           pathname: '/consoleInfo',
           console: console
         }}>{console.name}</Link>
+      </Nintendo>
+    )
+  }
+  else {
+    return (
+      <Playstation> 
+          <Link to={{
+            pathname: '/consoleInfo',
+            console: console
+          }}>{console.name}</Link>
       </Playstation>
     )
   }
@@ -38,11 +54,10 @@ const renderConsole = (console) => {
 
 const Console = (props) => {
   const { console } = props;
-
   return (
-    <div>
+    <>
       {renderConsole(console)}
-    </div>
+    </>
   )
 }
 export default Console;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ArticleBox = styled.figure`
-  width: 60%;
+  width: 40%;
   margin: 0 auto 0 auto;
   text-align: center;
 `

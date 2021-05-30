@@ -43,7 +43,8 @@ const GameItem = styled.li`
 class Games extends Component {
 
   state = {
-    searchTerm: ""
+    searchTerm: "",
+    games: []
   }
 
   handleChange(event) {
@@ -55,6 +56,7 @@ class Games extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.getGames(this.state.searchTerm)
+    this.setState({ searchTerm: ""})
   }
 
   getGames(searchTerm) {
@@ -70,7 +72,8 @@ class Games extends Component {
     body: `search "${searchTerm}"; fields name,artworks,themes.url,storyline,screenshots.url,first_release_date,rating,platforms.name,similar_games.cover.url,videos.*,cover.*;limit 20;`
     })
     .then(resp => resp.json())
-    .then(data => this.props.addGames(data))
+    //.then(data => this.props.addGames(data))
+    .then(data => this.setState({ games: data}))
     .catch(error => {console.log('error', error)})
   }
 
@@ -90,7 +93,7 @@ class Games extends Component {
           <Col size={1}>
             <GamesContainer>
               <GamesList>
-                {this.props.games.games && this.props.games.games
+                {this.state.games && this.state.games
                 .map(game => <GameItem key={game.id}><Game game={game}/></GameItem>)}
               </GamesList>
             </GamesContainer>
