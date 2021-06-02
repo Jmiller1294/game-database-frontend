@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { startCreateUser } from '../actions/userActions'
+import { connect } from 'react-redux';
+import styled from 'styled-components';
+import { startCreateUser } from '../actions/userActions';
+
+const RegistrationContainer = styled.div`
+    text-align: center;
+    margin: 300px auto 0px auto;
+`
+const RegistrationForm = styled.form`
+    
+`
+const Fieldset = styled.fieldset`
+    color: white;
+    width: 100px;
+    margin: 0px auto 0px auto;
+`
 
 class Registration extends Component {
 
@@ -27,17 +41,20 @@ class Registration extends Component {
 
     render () {
         return(
-            <div>
-                <form className="registration-form" onSubmit={event => this.handleSubmit(event)}>
-                    <input onChange={event => this.handleChange(event)} type="text" name="email" value={this.state.email} placeholder="Email" />
-                    <br></br>
-                    <input onChange={event => this.handleChange(event)} type="password" name="password" value={this.state.password} placeholder="Password" />
-                    <br></br>
-                    <input onChange={event => this.handleChange(event)} type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} placeholder="Retype Password" />
-                    <br></br>
-                    <button type="submit" value="Submit">Signup</button>
-                </form>
-            </div>
+            <RegistrationContainer>
+                <RegistrationForm onSubmit={event => this.handleSubmit(event)}>
+                    <Fieldset>
+                        <legend>Signup</legend>
+                        <input onChange={event => this.handleChange(event)} type="text" name="email" value={this.state.email} placeholder="Email" />
+                        <br></br>
+                        <input onChange={event => this.handleChange(event)} type="password" name="password" value={this.state.password} placeholder="Password" />
+                        <br></br>
+                        <input onChange={event => this.handleChange(event)} type="password" name="passwordConfirmation" value={this.state.passwordConfirmation} placeholder="Retype Password" />
+                        <br></br>
+                        <button type="submit" value="Submit">Signup</button>
+                    </Fieldset>
+                </RegistrationForm>
+            </RegistrationContainer>
         )
     } 
 }

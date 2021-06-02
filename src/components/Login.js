@@ -8,7 +8,7 @@ const LoginContainer = styled.div`
 
 `
 const LoginForm = styled.form`
-    margin: 200px auto 0px auto;
+    margin: 300px auto 0px auto;
     text-align: center;
     color: white;
 `
