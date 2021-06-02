@@ -57,15 +57,15 @@ class NavBar extends Component {
     }
 
     render() {
+        let LoginLink;
         let NavLink;
-        let ProfileLink;
         if(this.props.loggedIn) {
-            NavLink = <NavItem onClick={() => this.handleLogout()}><Link href="#">Logout</Link></NavItem>
-            ProfileLink = <NavItem><Link href="/profile">Profile</Link></NavItem>
+            LoginLink = <NavItem onClick={() => this.handleLogout()}><Link href="#">Logout</Link></NavItem>
+            NavLink = <NavItem><Link href="/profile">Profile</Link></NavItem>
         }
         else {
-            NavLink = <NavItem><Link href="/login">Login</Link></NavItem>
-            ProfileLink = null;
+            LoginLink = <NavItem><Link href="/login">Login</Link></NavItem>
+            NavLink = <NavItem><Link href="/registration">Signup</Link></NavItem>;
         }
         
         return (
@@ -76,11 +76,11 @@ class NavBar extends Component {
                         <NavItem><Link href="/games">Games</Link></NavItem>
                         <NavItem><Link href="/consoles">Consoles</Link></NavItem>
                         <NavItem><Link href="/about">About</Link></NavItem>
-                        {ProfileLink}
-                        <NavItem></NavItem>
-                        <NavItem></NavItem>
-                        <NavItem></NavItem>
                         {NavLink}
+                        <NavItem></NavItem>
+                        <NavItem></NavItem>
+                        <NavItem></NavItem>
+                        {LoginLink}
                     </Nav>
                 </Col>
             </Row>

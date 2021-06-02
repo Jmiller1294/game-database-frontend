@@ -37,7 +37,8 @@ class App extends Component {
         <React.Fragment>
           <NavBar />
           <Switch>
-            <Route exact path="/" render={(props) => <HomePage {...props} />} />
+            <Route exact path="/" component={HomePage}/>
+            <Route exact path="/registration" component={Registration} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/games" component={GamesPage} />
             <Route exact path="/consoles" component={ConsolesPage} />
