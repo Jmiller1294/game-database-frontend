@@ -54,14 +54,13 @@ class NavBar extends Component {
 
     handleLogout() {
         this.props.logout()
-        this.props.history.push("/");
     }
 
     render() {
         let NavLink;
         let ProfileLink;
         if(this.props.loggedIn) {
-            NavLink = <NavItem onClick={() => this.handleLogout()}><Link href="/">Logout</Link></NavItem>
+            NavLink = <NavItem onClick={() => this.handleLogout()}><Link href="#">Logout</Link></NavItem>
             ProfileLink = <NavItem><Link href="/profile">Profile</Link></NavItem>
         }
         else {

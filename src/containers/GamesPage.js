@@ -72,7 +72,6 @@ class Games extends Component {
     body: `search "${searchTerm}"; fields name,artworks,themes.url,storyline,screenshots.url,first_release_date,rating,platforms.name,similar_games.cover.url,videos.*,cover.*;limit 20;`
     })
     .then(resp => resp.json())
-    //.then(data => this.props.addGames(data))
     .then(data => this.setState({ games: data}))
     .catch(error => {console.log('error', error)})
   }

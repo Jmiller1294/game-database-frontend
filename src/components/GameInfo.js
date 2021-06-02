@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { addFavorite } from '../actions/gameActions';
+import { Redirect } from 'react-router-dom';
 
 const InfoContainer = styled.div`
   color: white; 
@@ -47,10 +48,6 @@ class GameInfo extends Component {
     this.props.addFavorite(this.props.location.game)
   }
 
-  componentDidMount() {
-    console.log(this.props.favorites)
-  }
-
   render() {
     const { game } = this.props.location;
 
@@ -60,7 +57,7 @@ class GameInfo extends Component {
             <InfoContainer>
               <GameTitle>{game.name}</GameTitle>
               <GameCover src={game.cover.url} alt="cover"></GameCover>
-              <FavoriteButton onClick={() => this.handleClick()}>favorite</FavoriteButton>
+              {this.props.loggedIn ? <FavoriteButton onClick={this.handleClick}>favorite</FavoriteButton>: null } 
               <GameRating>Game Rating: {Math.floor(game.rating)}/100</GameRating>
               <h3>Platforms</h3>
               <PlatformList>{game.platforms.map(platform => <li key={platform.id}>{platform.name}</li>)}</PlatformList>
@@ -78,7 +75,8 @@ class GameInfo extends Component {
               </SimilarGamesContainer>
             </InfoContainer>
           :
-            <h1>No Game Found</h1>
+          <Redirect to="/games" />
+           
           } 
       </>
     )

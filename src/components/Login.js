@@ -68,6 +68,6 @@ class Login extends Component {
 const mapStateToProps = (state) => ({
     user: state.user.currentUser,
     loggedIn: state.user.loggedIn
-  })
+})
 
 export default connect(mapStateToProps, { startLogin, checkLoggedInStatus })(Login);
